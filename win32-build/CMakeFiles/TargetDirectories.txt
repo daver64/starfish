@@ -1,0 +1,3 @@
+C:/Users/daver/source/starfish/win32-build/CMakeFiles/starfish.dir
+C:/Users/daver/source/starfish/win32-build/CMakeFiles/edit_cache.dir
+C:/Users/daver/source/starfish/win32-build/CMakeFiles/rebuild_cache.dir
