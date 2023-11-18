@@ -1,5 +1,2 @@
 bin/starfish.exe
-win32-build/CMakeFiles/starfish.dir/compiler_depend.internal
-win32-build/CMakeFiles/starfish.dir/compiler_depend.make
-win32-build/CMakeFiles/starfish.dir/compiler_depend.make
-win32-build/CMakeFiles/starfish.dir/src/starfish.cpp.obj
+win32-build/

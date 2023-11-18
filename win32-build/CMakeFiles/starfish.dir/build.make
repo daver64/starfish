@@ -78,17 +78,171 @@ CMakeFiles\starfish.dir\src\starfish.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\starfish.cpp.s /c C:\Users\daver\source\starfish\src\starfish.cpp
 <<
 
+CMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj: CMakeFiles\starfish.dir\flags.make
+CMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj: C:\Users\daver\source\starfish\src\imgui\imgui.cpp
+CMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj: CMakeFiles\starfish.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/starfish.dir/src/imgui/imgui.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj.d --working-dir=C:\Users\daver\source\starfish\win32-build --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj /FdCMakeFiles\starfish.dir\ /FS -c C:\Users\daver\source\starfish\src\imgui\imgui.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/starfish.dir/src/imgui/imgui.cpp.i"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe > CMakeFiles\starfish.dir\src\imgui\imgui.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\daver\source\starfish\src\imgui\imgui.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/starfish.dir/src/imgui/imgui.cpp.s"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\imgui\imgui.cpp.s /c C:\Users\daver\source\starfish\src\imgui\imgui.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj: CMakeFiles\starfish.dir\flags.make
+CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj: C:\Users\daver\source\starfish\src\imgui\imgui_draw.cpp
+CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj: CMakeFiles\starfish.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/starfish.dir/src/imgui/imgui_draw.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj.d --working-dir=C:\Users\daver\source\starfish\win32-build --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj /FdCMakeFiles\starfish.dir\ /FS -c C:\Users\daver\source\starfish\src\imgui\imgui_draw.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/starfish.dir/src/imgui/imgui_draw.cpp.i"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe > CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\daver\source\starfish\src\imgui\imgui_draw.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/starfish.dir/src/imgui/imgui_draw.cpp.s"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.s /c C:\Users\daver\source\starfish\src\imgui\imgui_draw.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj: CMakeFiles\starfish.dir\flags.make
+CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj: C:\Users\daver\source\starfish\src\imgui\imgui_tables.cpp
+CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj: CMakeFiles\starfish.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/starfish.dir/src/imgui/imgui_tables.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj.d --working-dir=C:\Users\daver\source\starfish\win32-build --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj /FdCMakeFiles\starfish.dir\ /FS -c C:\Users\daver\source\starfish\src\imgui\imgui_tables.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/starfish.dir/src/imgui/imgui_tables.cpp.i"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe > CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\daver\source\starfish\src\imgui\imgui_tables.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/starfish.dir/src/imgui/imgui_tables.cpp.s"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.s /c C:\Users\daver\source\starfish\src\imgui\imgui_tables.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj: CMakeFiles\starfish.dir\flags.make
+CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj: C:\Users\daver\source\starfish\src\imgui\imgui_widgets.cpp
+CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj: CMakeFiles\starfish.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/starfish.dir/src/imgui/imgui_widgets.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj.d --working-dir=C:\Users\daver\source\starfish\win32-build --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj /FdCMakeFiles\starfish.dir\ /FS -c C:\Users\daver\source\starfish\src\imgui\imgui_widgets.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/starfish.dir/src/imgui/imgui_widgets.cpp.i"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe > CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\daver\source\starfish\src\imgui\imgui_widgets.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/starfish.dir/src/imgui/imgui_widgets.cpp.s"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.s /c C:\Users\daver\source\starfish\src\imgui\imgui_widgets.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj: CMakeFiles\starfish.dir\flags.make
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj: C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_glfw.cpp
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj: CMakeFiles\starfish.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_glfw.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj.d --working-dir=C:\Users\daver\source\starfish\win32-build --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj /FdCMakeFiles\starfish.dir\ /FS -c C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_glfw.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_glfw.cpp.i"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe > CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_glfw.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_glfw.cpp.s"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.s /c C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_glfw.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj: CMakeFiles\starfish.dir\flags.make
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj: C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_opengl3.cpp
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj: CMakeFiles\starfish.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_opengl3.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj.d --working-dir=C:\Users\daver\source\starfish\win32-build --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj /FdCMakeFiles\starfish.dir\ /FS -c C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_opengl3.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_opengl3.cpp.i"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe > CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_opengl3.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_opengl3.cpp.s"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.s /c C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_opengl3.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj: CMakeFiles\starfish.dir\flags.make
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj: C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_win32.cpp
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj: CMakeFiles\starfish.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_win32.cpp.obj"
+	$(CMAKE_COMMAND) -E cmake_cl_compile_depends --dep-file=CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj.d --working-dir=C:\Users\daver\source\starfish\win32-build --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /showIncludes /FoCMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj /FdCMakeFiles\starfish.dir\ /FS -c C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_win32.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_win32.cpp.i"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe > CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_win32.cpp
+<<
+
+CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/starfish.dir/src/imgui/backends/imgui_impl_win32.cpp.s"
+	C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.s /c C:\Users\daver\source\starfish\src\imgui\backends\imgui_impl_win32.cpp
+<<
+
 # Object files for target starfish
 starfish_OBJECTS = \
-"CMakeFiles\starfish.dir\src\starfish.cpp.obj"
+"CMakeFiles\starfish.dir\src\starfish.cpp.obj" \
+"CMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj" \
+"CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj" \
+"CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj" \
+"CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj" \
+"CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj" \
+"CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj" \
+"CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj"
 
 # External object files for target starfish
 starfish_EXTERNAL_OBJECTS =
 
 C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\starfish.cpp.obj
+C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj
+C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj
+C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj
+C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj
+C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj
+C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj
+C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj
 C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\build.make
 C:\Users\daver\source\starfish\bin\starfish.exe: CMakeFiles\starfish.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable C:\Users\daver\source\starfish\bin\starfish.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\daver\source\starfish\win32-build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable C:\Users\daver\source\starfish\bin\starfish.exe"
 	C:\Users\daver\LocalApps\cmake\bin\cmake.exe -E vs_link_exe --intdir=CMakeFiles\starfish.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\mt.exe --manifests -- C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1437~1.328\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\starfish.dir\objects1.rsp @<<
  /out:C:\Users\daver\source\starfish\bin\starfish.exe /implib:starfish.lib /pdb:C:\Users\daver\source\starfish\bin\starfish.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO /subsystem:console /LIBPATH:../lib/win64 /ENTRY:mainCRTStartup /SUBSYSTEM:WINDOWS  glfw3.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

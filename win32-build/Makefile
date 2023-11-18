@@ -118,6 +118,174 @@ starfish\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\build
 .PHONY : starfish\fast
 
+src\imgui\backends\imgui_impl_glfw.obj: src\imgui\backends\imgui_impl_glfw.cpp.obj
+.PHONY : src\imgui\backends\imgui_impl_glfw.obj
+
+# target to build an object file
+src\imgui\backends\imgui_impl_glfw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.obj
+.PHONY : src\imgui\backends\imgui_impl_glfw.cpp.obj
+
+src\imgui\backends\imgui_impl_glfw.i: src\imgui\backends\imgui_impl_glfw.cpp.i
+.PHONY : src\imgui\backends\imgui_impl_glfw.i
+
+# target to preprocess a source file
+src\imgui\backends\imgui_impl_glfw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.i
+.PHONY : src\imgui\backends\imgui_impl_glfw.cpp.i
+
+src\imgui\backends\imgui_impl_glfw.s: src\imgui\backends\imgui_impl_glfw.cpp.s
+.PHONY : src\imgui\backends\imgui_impl_glfw.s
+
+# target to generate assembly for a file
+src\imgui\backends\imgui_impl_glfw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_glfw.cpp.s
+.PHONY : src\imgui\backends\imgui_impl_glfw.cpp.s
+
+src\imgui\backends\imgui_impl_opengl3.obj: src\imgui\backends\imgui_impl_opengl3.cpp.obj
+.PHONY : src\imgui\backends\imgui_impl_opengl3.obj
+
+# target to build an object file
+src\imgui\backends\imgui_impl_opengl3.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.obj
+.PHONY : src\imgui\backends\imgui_impl_opengl3.cpp.obj
+
+src\imgui\backends\imgui_impl_opengl3.i: src\imgui\backends\imgui_impl_opengl3.cpp.i
+.PHONY : src\imgui\backends\imgui_impl_opengl3.i
+
+# target to preprocess a source file
+src\imgui\backends\imgui_impl_opengl3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.i
+.PHONY : src\imgui\backends\imgui_impl_opengl3.cpp.i
+
+src\imgui\backends\imgui_impl_opengl3.s: src\imgui\backends\imgui_impl_opengl3.cpp.s
+.PHONY : src\imgui\backends\imgui_impl_opengl3.s
+
+# target to generate assembly for a file
+src\imgui\backends\imgui_impl_opengl3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_opengl3.cpp.s
+.PHONY : src\imgui\backends\imgui_impl_opengl3.cpp.s
+
+src\imgui\backends\imgui_impl_win32.obj: src\imgui\backends\imgui_impl_win32.cpp.obj
+.PHONY : src\imgui\backends\imgui_impl_win32.obj
+
+# target to build an object file
+src\imgui\backends\imgui_impl_win32.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.obj
+.PHONY : src\imgui\backends\imgui_impl_win32.cpp.obj
+
+src\imgui\backends\imgui_impl_win32.i: src\imgui\backends\imgui_impl_win32.cpp.i
+.PHONY : src\imgui\backends\imgui_impl_win32.i
+
+# target to preprocess a source file
+src\imgui\backends\imgui_impl_win32.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.i
+.PHONY : src\imgui\backends\imgui_impl_win32.cpp.i
+
+src\imgui\backends\imgui_impl_win32.s: src\imgui\backends\imgui_impl_win32.cpp.s
+.PHONY : src\imgui\backends\imgui_impl_win32.s
+
+# target to generate assembly for a file
+src\imgui\backends\imgui_impl_win32.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\backends\imgui_impl_win32.cpp.s
+.PHONY : src\imgui\backends\imgui_impl_win32.cpp.s
+
+src\imgui\imgui.obj: src\imgui\imgui.cpp.obj
+.PHONY : src\imgui\imgui.obj
+
+# target to build an object file
+src\imgui\imgui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui.cpp.obj
+.PHONY : src\imgui\imgui.cpp.obj
+
+src\imgui\imgui.i: src\imgui\imgui.cpp.i
+.PHONY : src\imgui\imgui.i
+
+# target to preprocess a source file
+src\imgui\imgui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui.cpp.i
+.PHONY : src\imgui\imgui.cpp.i
+
+src\imgui\imgui.s: src\imgui\imgui.cpp.s
+.PHONY : src\imgui\imgui.s
+
+# target to generate assembly for a file
+src\imgui\imgui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui.cpp.s
+.PHONY : src\imgui\imgui.cpp.s
+
+src\imgui\imgui_draw.obj: src\imgui\imgui_draw.cpp.obj
+.PHONY : src\imgui\imgui_draw.obj
+
+# target to build an object file
+src\imgui\imgui_draw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.obj
+.PHONY : src\imgui\imgui_draw.cpp.obj
+
+src\imgui\imgui_draw.i: src\imgui\imgui_draw.cpp.i
+.PHONY : src\imgui\imgui_draw.i
+
+# target to preprocess a source file
+src\imgui\imgui_draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.i
+.PHONY : src\imgui\imgui_draw.cpp.i
+
+src\imgui\imgui_draw.s: src\imgui\imgui_draw.cpp.s
+.PHONY : src\imgui\imgui_draw.s
+
+# target to generate assembly for a file
+src\imgui\imgui_draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_draw.cpp.s
+.PHONY : src\imgui\imgui_draw.cpp.s
+
+src\imgui\imgui_tables.obj: src\imgui\imgui_tables.cpp.obj
+.PHONY : src\imgui\imgui_tables.obj
+
+# target to build an object file
+src\imgui\imgui_tables.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.obj
+.PHONY : src\imgui\imgui_tables.cpp.obj
+
+src\imgui\imgui_tables.i: src\imgui\imgui_tables.cpp.i
+.PHONY : src\imgui\imgui_tables.i
+
+# target to preprocess a source file
+src\imgui\imgui_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.i
+.PHONY : src\imgui\imgui_tables.cpp.i
+
+src\imgui\imgui_tables.s: src\imgui\imgui_tables.cpp.s
+.PHONY : src\imgui\imgui_tables.s
+
+# target to generate assembly for a file
+src\imgui\imgui_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_tables.cpp.s
+.PHONY : src\imgui\imgui_tables.cpp.s
+
+src\imgui\imgui_widgets.obj: src\imgui\imgui_widgets.cpp.obj
+.PHONY : src\imgui\imgui_widgets.obj
+
+# target to build an object file
+src\imgui\imgui_widgets.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.obj
+.PHONY : src\imgui\imgui_widgets.cpp.obj
+
+src\imgui\imgui_widgets.i: src\imgui\imgui_widgets.cpp.i
+.PHONY : src\imgui\imgui_widgets.i
+
+# target to preprocess a source file
+src\imgui\imgui_widgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.i
+.PHONY : src\imgui\imgui_widgets.cpp.i
+
+src\imgui\imgui_widgets.s: src\imgui\imgui_widgets.cpp.s
+.PHONY : src\imgui\imgui_widgets.s
+
+# target to generate assembly for a file
+src\imgui\imgui_widgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\starfish.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\starfish.dir\src\imgui\imgui_widgets.cpp.s
+.PHONY : src\imgui\imgui_widgets.cpp.s
+
 src\starfish.obj: src\starfish.cpp.obj
 .PHONY : src\starfish.obj
 
@@ -151,6 +319,27 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... starfish
+	@echo ... src/imgui/backends/imgui_impl_glfw.obj
+	@echo ... src/imgui/backends/imgui_impl_glfw.i
+	@echo ... src/imgui/backends/imgui_impl_glfw.s
+	@echo ... src/imgui/backends/imgui_impl_opengl3.obj
+	@echo ... src/imgui/backends/imgui_impl_opengl3.i
+	@echo ... src/imgui/backends/imgui_impl_opengl3.s
+	@echo ... src/imgui/backends/imgui_impl_win32.obj
+	@echo ... src/imgui/backends/imgui_impl_win32.i
+	@echo ... src/imgui/backends/imgui_impl_win32.s
+	@echo ... src/imgui/imgui.obj
+	@echo ... src/imgui/imgui.i
+	@echo ... src/imgui/imgui.s
+	@echo ... src/imgui/imgui_draw.obj
+	@echo ... src/imgui/imgui_draw.i
+	@echo ... src/imgui/imgui_draw.s
+	@echo ... src/imgui/imgui_tables.obj
+	@echo ... src/imgui/imgui_tables.i
+	@echo ... src/imgui/imgui_tables.s
+	@echo ... src/imgui/imgui_widgets.obj
+	@echo ... src/imgui/imgui_widgets.i
+	@echo ... src/imgui/imgui_widgets.s
 	@echo ... src/starfish.obj
 	@echo ... src/starfish.i
 	@echo ... src/starfish.s

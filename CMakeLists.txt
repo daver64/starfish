@@ -20,7 +20,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../bin")
 if(UNIX)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
-include_directories($OPENGL_INCLUDE_DIR)
+include_directories($OPENGL_INCLUDE_DIR src/imgui)
 endif(UNIX)
 
 
@@ -29,7 +29,7 @@ endif(UNIX)
 ##
 if(MSVC)
 set(CMAKE_BUILD_TYPE "Release")
-set(CMAKE_CXX_FLAGS "-I../include /EHsc /Qpar /GS- /O2 /D NDEBUG")
+set(CMAKE_CXX_FLAGS "-I../include -I../src/imgui -I../src/imgui/backends /EHsc /Qpar /GS- /O2 /D NDEBUG")
 endif(MSVC)
 
 
@@ -37,7 +37,7 @@ endif(MSVC)
 ## Linux Compile Flags
 ##
 if(UNIX)
-set(CMAKE_CXX_FLAGS "-I../include -O2")
+set(CMAKE_CXX_FLAGS "-I../include -I./imgui -O2")
 endif(UNIX)
 
 
@@ -52,7 +52,14 @@ endif(MINGW)
 ##
 ## Project Build.
 ##
-add_executable(starfish src/starfish.cpp)
+add_executable(starfish src/starfish.cpp
+    src/imgui/imgui.cpp
+    src/imgui/imgui_draw.cpp
+    src/imgui/imgui_tables.cpp
+    src/imgui/imgui_widgets.cpp
+    src/imgui/backends/imgui_impl_glfw.cpp
+    src/imgui/backends/imgui_impl_opengl3.cpp
+    src/imgui/backends/imgui_impl_win32.cpp)
 
 ##
 ## MSVC Platform Link Options

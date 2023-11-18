@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS = -I../include /EHsc /Qpar /GS- /O2 /D NDEBUG /O2 /Ob2 /DNDEBUG -MD
+CXX_FLAGS = -I../include -I../src/imgui -I../src/imgui/backends /EHsc /Qpar /GS- /O2 /D NDEBUG /O2 /Ob2 /DNDEBUG -MD
 
