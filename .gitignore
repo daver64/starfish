@@ -1,3 +1,5 @@
 bin/
 win32-build/
 linux-build/
+.vscode/
+.lib/
