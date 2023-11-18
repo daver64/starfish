@@ -37,7 +37,7 @@ endif(MSVC)
 ## Linux Compile Flags
 ##
 if(UNIX)
-set(CMAKE_CXX_FLAGS "-I../include -I./imgui -O2")
+set(CMAKE_CXX_FLAGS "-I../include -I../src/imgui -I../src/imgui/backends -O2")
 endif(UNIX)
 
 
@@ -52,6 +52,7 @@ endif(MINGW)
 ##
 ## Project Build.
 ##
+if(MSVC)
 add_executable(starfish src/starfish.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
@@ -60,7 +61,17 @@ add_executable(starfish src/starfish.cpp
     src/imgui/backends/imgui_impl_glfw.cpp
     src/imgui/backends/imgui_impl_opengl3.cpp
     src/imgui/backends/imgui_impl_win32.cpp)
+endif(MSVC)
 
+if(UNIX)
+add_executable(starfish src/starfish.cpp
+    src/imgui/imgui.cpp
+    src/imgui/imgui_draw.cpp
+    src/imgui/imgui_tables.cpp
+    src/imgui/imgui_widgets.cpp
+    src/imgui/backends/imgui_impl_glfw.cpp
+    src/imgui/backends/imgui_impl_opengl3.cpp)
+endif(UNIX)
 ##
 ## MSVC Platform Link Options
 ##
@@ -73,5 +84,5 @@ endif(MSVC)
 ## Linux Platform Link Options
 ##
 if(UNIX)
-target_link_libraries(starfish ${OPENGL_gl_LIBRARY} glfw)
+target_link_libraries(starfish GL glfw)
 endif(UNIX)

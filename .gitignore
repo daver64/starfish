@@ -1,2 +1,3 @@
-bin/starfish.exe
+bin/
 win32-build/
+linux-build/
