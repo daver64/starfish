@@ -11,6 +11,8 @@
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 #include <cstdio>
+#include <GLM/glm.hpp>
+#include <glm/ext.hpp>
 #include "starfish.h"
 
 static void glfw_error_callback(int error, const char *description)
@@ -79,9 +81,15 @@ int main(int argc, char *argv[])
             static float f = 0.0f;
             static int counter = 0;
 
+            // quick maths lib test.
+            glm::vec4 vec(1.0f,0.0f,0.0f,1.0f);
+            glm::mat4 trans=glm::mat4(1.0f);
+            trans = glm::translate(trans,glm::vec3(1.0f,1.0f,1.0f));
+            vec=trans * vec;
+
             ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 
-            ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+            ImGui::Text("Vec4=%2.2f,%2.2f,%2.2f,%2.2f",vec.x,vec.y,vec.z,vec.w);               // Display some text (you can use a format strings too)
             ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
             ImGui::Checkbox("Another Window", &show_another_window);
 
