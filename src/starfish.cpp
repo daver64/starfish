@@ -11,7 +11,7 @@
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 #include <cstdio>
-#include <GLM/glm.hpp>
+#include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include "starfish.h"
 
