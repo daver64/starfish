@@ -9,6 +9,9 @@
 #include "imgui_impl_opengl3.h"
 
 #include <GLFW/glfw3.h>
+#include <AL/al.h>
+#include <AL/alc.h>
+
 #include <cstdlib>
 #include <cstdio>
 #include <glm/glm.hpp>
@@ -32,8 +35,12 @@ void process_input(GLFWwindow *window)
 }
 
 
+
+int audio_main();
 int main(int argc, char *argv[])
 {
+
+    audio_main();
     int32 result = EXIT_SUCCESS;
     glfwSetErrorCallback(glfw_error_callback);
     glfwInit();
@@ -63,8 +70,6 @@ int main(int argc, char *argv[])
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-
 
     while(!glfwWindowShouldClose(window))
     {
@@ -109,7 +114,7 @@ int main(int argc, char *argv[])
         if (show_another_window)
         {
             ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-            ImGui::Text("Hello from another window!");
+            ImGui::Text("Hello from\n another window!");
             if (ImGui::Button("Close Me"))
                 show_another_window = false;
             ImGui::End();

@@ -54,6 +54,7 @@ endif(MINGW)
 ##
 if(MSVC)
 add_executable(starfish src/starfish.cpp
+    src/main_audio.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
@@ -65,6 +66,7 @@ endif(MSVC)
 
 if(UNIX)
 add_executable(starfish src/starfish.cpp
+    src/main_audio.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
@@ -78,8 +80,8 @@ endif(UNIX)
 ## MSVC Platform Link Options
 ##
 if(MSVC)
-set_target_properties(starfish PROPERTIES LINK_FLAGS "/LIBPATH:../lib/win64 /ENTRY:mainCRTStartup /SUBSYSTEM:WINDOWS")
-target_link_libraries(starfish glfw3 opengl32 )
+set_target_properties(starfish PROPERTIES LINK_FLAGS "/LIBPATH:../lib/win64 /ENTRY:mainCRTStartup /SUBSYSTEM:CONSOLE")
+target_link_libraries(starfish glfw3 opengl32 openal32 )
 endif(MSVC)
 
 ##
