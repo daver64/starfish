@@ -88,5 +88,5 @@ endif(MSVC)
 ## Linux Platform Link Options
 ##
 if(UNIX)
-target_link_libraries(starfish GL glfw)
+target_link_libraries(starfish GL glfw openal)
 endif(UNIX)

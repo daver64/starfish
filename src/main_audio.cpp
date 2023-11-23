@@ -4,10 +4,34 @@
 #include <AL/al.h>
 #include <AL/alc.h>
 #include <AL/alext.h>
-//#include "starfish.h"
 
+#ifdef _WIN32
+#include <windows.h>
 
+void al_nssleep(unsigned long nsec)
+{
+    Sleep(nsec / 1000000);
+}
+#else
+#include <climits>
+#include <cmath>
+#include <sys/time.h>
+#include <unistd.h>
+#include <time.h>
+#include <cerrno>
+using std::modf;
+using std::sin;
+void al_nssleep(unsigned long nsec)
+{
+    struct timespec ts,rem;
+    ts.tv_sec=(time_t)(nsec /1000000000ul);
+    ts.tv_nsec=(long)(nsec & 1000000000ul);
+    while(nanosleep(&ts,&rem)!=-1 && errno==EINTR)
+        ts=rem;
 
+}
+
+#endif
 
 static void list_audio_devices(const ALCchar *devices)
 {
@@ -156,14 +180,7 @@ static ALuint CreateWave(enum WaveType type, ALuint seconds, ALuint freq, ALuint
 
     return buffer;
 }
-#ifdef _WIN32
-#include <windows.h>
 
-void al_nssleep(unsigned long nsec)
-{
-    Sleep(nsec / 1000000);
-}
-#endif
 int audio_main()
 {
     ALCdevice *device=NULL;
