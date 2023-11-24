@@ -1,9 +1,9 @@
 
 /**
- * 
+ *
  * Cross Platform OpenGL Boilerplate Project
- * 
-*/
+ *
+ */
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -20,21 +20,19 @@
 
 static void glfw_error_callback(int error, const char *description)
 {
-    fprintf(stderr,"Error %d : %s\n",error, description);
+    fprintf(stderr, "Error %d : %s\n", error, description);
 }
 static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 {
-    glViewport(0,0,width,height);
+    glViewport(0, 0, width, height);
 }
 void process_input(GLFWwindow *window)
 {
-    if(glfwGetKey(window,GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
-        glfwSetWindowShouldClose(window,true);
+        glfwSetWindowShouldClose(window, true);
     }
 }
-
-
 
 int audio_main();
 int main(int argc, char *argv[])
@@ -44,37 +42,38 @@ int main(int argc, char *argv[])
     int32 result = EXIT_SUCCESS;
     glfwSetErrorCallback(glfw_error_callback);
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,0);
-    glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);
-    GLFWwindow *window = glfwCreateWindow(800,600,"Starfish",NULL,NULL);
-    if(!window) 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    GLFWwindow *window = glfwCreateWindow(800, 600, "Starfish", NULL, NULL);
+    if (!window)
     {
-        fprintf(stderr,"failed to create window\n");
+        fprintf(stderr, "failed to create window\n");
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
-    glViewport(0,0,800,600);
-    glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
+    glViewport(0, 0, 800, 600);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSwapInterval(1);
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    ImGuiIO &io=ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; 
+    ImGuiIO &io = ImGui::GetIO();
+    (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     ImGui::StyleColorsDark();
-    const char* glsl_version = "#version 130";
+    const char *glsl_version = "#version 130";
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-    while(!glfwWindowShouldClose(window))
+    while (!glfwWindowShouldClose(window))
     {
-       // glClearColor(0.8f,0.8f,0.1f,1.0f);
-       // glClear(GL_COLOR_BUFFER_BIT);        
+        // glClearColor(0.8f,0.8f,0.1f,1.0f);
+        // glClear(GL_COLOR_BUFFER_BIT);
         process_input(window);
 
         ImGui_ImplOpenGL3_NewFrame();
@@ -87,21 +86,21 @@ int main(int argc, char *argv[])
             static int counter = 0;
 
             // quick maths lib test.
-            glm::vec4 vec(1.0f,0.0f,0.0f,1.0f);
-            glm::mat4 trans=glm::mat4(1.0f);
-            trans = glm::translate(trans,glm::vec3(1.0f,1.0f,1.0f));
-            vec=trans * vec;
+            glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
+            glm::mat4 trans = glm::mat4(1.0f);
+            trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 1.0f));
+            vec = trans * vec;
 
-            ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+            ImGui::Begin("Hello, world!"); // Create a window called "Hello, world!" and append into it.
 
-            ImGui::Text("Vec4=%2.2f,%2.2f,%2.2f,%2.2f",vec.x,vec.y,vec.z,vec.w);               // Display some text (you can use a format strings too)
-            ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
+            ImGui::Text("Vec4=%2.2f,%2.2f,%2.2f,%2.2f", vec.x, vec.y, vec.z, vec.w); // Display some text (you can use a format strings too)
+            ImGui::Checkbox("Demo Window", &show_demo_window);                       // Edit bools storing our window open/close state
             ImGui::Checkbox("Another Window", &show_another_window);
 
-            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-            ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);             // Edit 1 float using a slider from 0.0f to 1.0f
+            ImGui::ColorEdit3("clear color", (float *)&clear_color); // Edit 3 floats representing a color
 
-            if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+            if (ImGui::Button("Button")) // Buttons return true when clicked (most widgets return true when edited/activated)
                 counter++;
             ImGui::SameLine();
             ImGui::Text("counter = %d", counter);
@@ -113,7 +112,7 @@ int main(int argc, char *argv[])
         // 3. Show another simple window.
         if (show_another_window)
         {
-            ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+            ImGui::Begin("Another Window", &show_another_window); // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
             ImGui::Text("Hello from\n another window!");
             if (ImGui::Button("Close Me"))
                 show_another_window = false;
