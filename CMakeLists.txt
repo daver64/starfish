@@ -53,6 +53,7 @@ endif(MINGW)
 ## Project Build.
 ##
 if(MSVC)
+
 add_executable(starfish src/starfish.cpp
     src/main_audio.cpp
     src/main_graphics.cpp
@@ -72,8 +73,8 @@ add_executable(starfish src/starfish.cpp
     src/imgui/imgui_widgets.cpp
     src/imgui/backends/imgui_impl_glfw.cpp
     src/imgui/backends/imgui_impl_opengl3.cpp
-    src/imgui/backends/imgui_impl_win32.cpp)
-    target_sources(starfish PRIVATE src/starfish.rc)
+    src/imgui/backends/imgui_impl_win32.cpp
+    src/starfish.rc)
 endif(MSVC)
 
 if(UNIX)
@@ -103,8 +104,8 @@ endif(UNIX)
 ## MSVC Platform Link Options
 ##
 if(MSVC)
-set_target_properties(starfish PROPERTIES LINK_FLAGS "/LIBPATH:../lib/win64 /ENTRY:mainCRTStartup /SUBSYSTEM:CONSOLE")
-target_link_libraries(starfish glfw3 opengl32 openal32 )
+set_target_properties(starfish PROPERTIES LINK_FLAGS "/LIBPATH:../lib/win64 /ENTRY:mainCRTStartup /SUBSYSTEM:WINDOWS")
+target_link_libraries(starfish glfw3 opengl32 openal32)
 endif(MSVC)
 
 ##

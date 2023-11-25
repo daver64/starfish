@@ -1,4 +1,4 @@
 #include "..\include\resource.h"
-MAINICON ICON "sauronbrotsmall.ico"
+MAINICON ICON DISCARDABLE "sauronbrotsmall.ico"
 
 

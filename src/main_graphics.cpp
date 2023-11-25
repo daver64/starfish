@@ -12,26 +12,11 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
-static void glfw_error_callback(int error, const char *description)
-{
-    fprintf(stderr, "Error %d : %s\n", error, description);
-}
-static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
-{
-    glViewport(0, 0, width, height);
-}
-void process_input(GLFWwindow *window)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-    {
-        glfwSetWindowShouldClose(window, true);
-    }
-}
 
 int main_graphics()
 {
     int32 result = EXIT_SUCCESS;
-    glfwSetErrorCallback(glfw_error_callback);
+ /*   glfwSetErrorCallback(glfw_error_callback);
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
@@ -42,13 +27,13 @@ int main_graphics()
         fprintf(stderr, "failed to create window\n");
         glfwTerminate();
         return -1;
-    }
-    glfwMakeContextCurrent(window);
-    glViewport(0, 0, 800, 600);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSwapInterval(1);
+    }*/
+   // glfwMakeContextCurrent(window);
+   // glViewport(0, 0, 800, 600);
+   // glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+   // glfwSwapInterval(1);
 
-    IMGUI_CHECKVERSION();
+   /* IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO &io = ImGui::GetIO();
     (void)io;
@@ -60,14 +45,14 @@ int main_graphics()
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-    while (!glfwWindowShouldClose(window))
-    {
+*/
+   // while (!glfwWindowShouldClose(window))
+   // {
         // glClearColor(0.8f,0.8f,0.1f,1.0f);
         // glClear(GL_COLOR_BUFFER_BIT);
-        process_input(window);
+       // process_input(window);
 
-        ImGui_ImplOpenGL3_NewFrame();
+    /*    ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
@@ -121,9 +106,9 @@ int main_graphics()
 
         glfwSwapBuffers(window);
 
-        glfwPollEvents();
-    }
+        glfwPollEvents();*/
+//    }
 
-    glfwTerminate();
+   // glfwTerminate();
     return 0;
 }
