@@ -55,6 +55,7 @@ endif(MINGW)
 if(MSVC)
 add_executable(starfish src/starfish.cpp
     src/main_audio.cpp
+    src/main_graphics.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
@@ -62,11 +63,13 @@ add_executable(starfish src/starfish.cpp
     src/imgui/backends/imgui_impl_glfw.cpp
     src/imgui/backends/imgui_impl_opengl3.cpp
     src/imgui/backends/imgui_impl_win32.cpp)
+    target_sources(starfish PRIVATE src/starfish.rc)
 endif(MSVC)
 
 if(UNIX)
 add_executable(starfish src/starfish.cpp
     src/main_audio.cpp
+    src/main_graphics.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp

@@ -179,7 +179,7 @@ static ALuint CreateWave(enum WaveType type, ALuint seconds, ALuint freq, ALuint
     err = alGetError();
     if (err != AL_NO_ERROR)
     {
-        fprintf(stderr, "OpenAL Error: %s\n", alGetString(err));
+        fprintf(stderr, "OpenAL Error: %s\rn", alGetString(err));
         if (alIsBuffer(buffer))
             alDeleteBuffers(1, &buffer);
         return 0;
@@ -188,7 +188,7 @@ static ALuint CreateWave(enum WaveType type, ALuint seconds, ALuint freq, ALuint
     return buffer;
 }
 
-int audio_main()
+int main_audio()
 {
     ALCdevice *device = NULL;
     device = alcOpenDevice(NULL);

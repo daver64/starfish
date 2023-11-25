@@ -1,0 +1,4 @@
+#include "..\include\resource.h"
+MAINICON ICON "sauronbrotsmall.ico"
+
+
