@@ -61,7 +61,9 @@ int32 sl_create_context(SLContext **context,const char *titletext, int32 width, 
     (*context)->window = window;
     (*context)->quit_requested = false;
 
+#ifdef _WIN32
     sl_load_gl_extensions();
+#endif
     return 0;
 }
 int32 sl_destroy_context(SLContext **context)

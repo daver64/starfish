@@ -1,12 +1,20 @@
 
 #ifdef _WIN32
 #include <windows.h>
-#endif
 #include <GL/GL.h>
 #include <GL/GLU.h>
-#ifdef _WIN32
 #include "sl_glext.h"
+#else
+//#define GL_GLEXT_LEGACY
+//#define GLFW_INCLUDE_GLEXT
+//#include <GLFW/glfw3.h>
+#include <GL/gl.h>
+#include <GL/glext.h>
+//#include <GL/gl.h>
+//#include <GL/glu.h>
+//#include <GL/glext.h>
 #endif
+
 
 #include "sl_texture.h"
  
@@ -24,7 +32,8 @@ Texture::Texture(int32 width, int32 height, bool mipmapped)
 
 	if (mipmapped)
 	{
-		glGenerateMipmap(GL_TEXTURE_2D);
+		//glGenerateMipmap(GL_TEXTURE_2D);
+		glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	}
 	else
