@@ -3,6 +3,7 @@
 #include "sl_framebuffer.h"
 #include "sl_primitivebuffer.h"
 #include "sl_texture.h"
+#include <cstdio>
 
 SLContext *context{nullptr};
 Texture *tex{nullptr};
