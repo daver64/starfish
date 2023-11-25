@@ -26,7 +26,7 @@
 // off every 'zix'.)
 //
 #define FN_USE_DOUBLES
-#include "FastNoise.h"
+#include "fastnoise.h"
 
 #include <math.h>
 #include <assert.h>
