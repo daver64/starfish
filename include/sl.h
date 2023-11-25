@@ -11,6 +11,64 @@
 #ifdef _WIN32
 #include "resource.h"
 #endif
+#include "glm/glm.hpp"
+
+using glm::vec2;
+using glm::vec3;
+using glm::vec4;
+using glm::mat4x4;
+using glm::dvec2;
+using glm::dvec3;
+using glm::dvec4;
+using glm::dmat4x4;
+
+class quat {
+
+};
+
+class dquat {
+
+};
+
+class polar {
+public:
+	union
+	{
+		float d[4] = { 0,0,0,0 };
+		struct { float ra, dec, rad, w; };
+		struct { float lon, lat, alt, p; };
+	};
+	polar(const float& lon = 0,
+		const float& lat = 0,
+		const float& alt = 0);
+	polar(const float p[3]);
+	polar(const vec3& pos);
+	float& operator[](size_t index);
+	vec3 polar_to_cartesian(const polar& pos);
+	polar cartesian_to_polar(const vec3& pos);
+	vec3 to_cartesian();
+	void from_cartesian(const vec3& pos);
+};
+
+class dpolar {
+public:
+	union
+	{
+		double d[4] = { 0,0,0,0 };
+		struct { double ra, dec, rad, w; };
+		struct { double lon, lat, alt, p; };
+	};
+	dpolar(const double& lon = 0,
+		const double& lat = 0,
+		const double& alt = 0);
+	dpolar(const double p[3]);
+	dpolar(const dvec3& pos);
+	double& operator[](size_t index);
+	dvec3 polar_to_cartesian(const dpolar& pos);
+	dpolar cartesian_to_polar(const dvec3& pos);
+	dvec3 to_cartesian();
+	void from_cartesian(const vec3& pos);
+};
 
 #define sgn(x) ((x<0)?-1:((x>0)?1:0))
 #define argb(a,r,g,b) ( ((uint32_t)(a)<<24) |		\

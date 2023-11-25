@@ -5,16 +5,9 @@
 #include <GL/GLU.h>
 #include "sl_glext.h"
 #else
-//#define GL_GLEXT_LEGACY
-//#define GLFW_INCLUDE_GLEXT
-//#include <GLFW/glfw3.h>
 #include <GL/gl.h>
 #include <GL/glext.h>
-//#include <GL/gl.h>
-//#include <GL/glu.h>
-//#include <GL/glext.h>
 #endif
-
 
 #include "sl_texture.h"
  

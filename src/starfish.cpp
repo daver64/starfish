@@ -9,6 +9,11 @@ Texture *tex{nullptr};
 
 int main(int argc, char *argv[])
 {
+
+    printf("sizeof vec2=%zu\n",sizeof(glm::vec2));
+    printf("sizeof vec3=%zu\n",sizeof(glm::vec3));
+    printf("sizeof vec4=%zu\n",sizeof(glm::vec4));
+           
     int32 screen_w=800;
     int32 screen_h=600;
     bool fullscreen=false;
