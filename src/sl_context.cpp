@@ -1,4 +1,4 @@
-// #define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 #include "sl_context.h"
@@ -6,7 +6,9 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
+//#define GLFW_INCLUDE_GLEXT
 #include <GLFW/glfw3.h>
+//#include <sl_glext.h>
 #include <AL/al.h>
 #include <AL/alc.h>
 
@@ -23,15 +25,15 @@ static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 {
     glViewport(0, 0, width, height);
 }
-int32 sl_create_context(SLContext **context, int32 width, int32 height, bool fullscreen)
+int32 sl_create_context(SLContext **context,const char *titletext, int32 width, int32 height, bool fullscreen)
 {
     glfwSetErrorCallback(glfw_error_callback);
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    GLFWwindow *window = glfwCreateWindow(width, height, "Starfish", NULL, NULL);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
+    GLFWwindow *window = glfwCreateWindow(width, height, titletext, NULL, NULL);
     if (!window)
     {
         fprintf(stderr, "failed to create window\n");
@@ -58,6 +60,8 @@ int32 sl_create_context(SLContext **context, int32 width, int32 height, bool ful
     (*context)->fullscreen = fullscreen;
     (*context)->window = window;
     (*context)->quit_requested = false;
+
+    sl_load_gl_extensions();
     return 0;
 }
 int32 sl_destroy_context(SLContext **context)
