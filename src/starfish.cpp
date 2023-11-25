@@ -1,3 +1,6 @@
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #include "sl.h"
 #include "sl_draw.h"
 #include "sl_framebuffer.h"

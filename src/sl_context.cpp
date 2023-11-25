@@ -1,3 +1,6 @@
+// #define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #include "sl_context.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -20,12 +23,13 @@ static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 {
     glViewport(0, 0, width, height);
 }
-int32 sl_create_context(SLContext **context,int32 width,int32 height,bool fullscreen)
+int32 sl_create_context(SLContext **context, int32 width, int32 height, bool fullscreen)
 {
     glfwSetErrorCallback(glfw_error_callback);
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     GLFWwindow *window = glfwCreateWindow(width, height, "Starfish", NULL, NULL);
     if (!window)
@@ -40,19 +44,27 @@ int32 sl_create_context(SLContext **context,int32 width,int32 height,bool fullsc
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSwapInterval(1);
 
+    GLFWimage images[2];
+    images[0].pixels = stbi_load("bud.png", &images[0].width, &images[0].height, 0, 4);
+    images[1].pixels = stbi_load("bud.png", &images[1].width, &images[1].height, 0, 4);
+    if (images[0].pixels && images[1].pixels)
+    {
+        glfwSetWindowIcon(window, 2, images);
+        stbi_image_free(images[0].pixels);
+    }
     *context = new SLContext;
-    (*context)->width=width;
-    (*context)->height=height;
-    (*context)->fullscreen=fullscreen;
-    (*context)->window=window;
-    (*context)->quit_requested=false;
+    (*context)->width = width;
+    (*context)->height = height;
+    (*context)->fullscreen = fullscreen;
+    (*context)->window = window;
+    (*context)->quit_requested = false;
     return 0;
 }
 int32 sl_destroy_context(SLContext **context)
 {
     assert(*context);
     delete (*context);
-    *context=nullptr;
+    *context = nullptr;
     glfwTerminate();
     return 0;
 }
@@ -62,11 +74,11 @@ bool sl_want_to_quit(SLContext *context)
     assert(context);
     return context->quit_requested;
 }
- 
+
 void sl_quit(SLContext *context)
 {
     assert(context);
-    context->quit_requested=true;
+    context->quit_requested = true;
 }
 
 void sl_swap(SLContext *context)
@@ -76,9 +88,9 @@ void sl_swap(SLContext *context)
 void sl_poll_input(SLContext *context)
 {
     glfwPollEvents();
-    if(glfwWindowShouldClose(context->window))
+    if (glfwWindowShouldClose(context->window))
     {
-        context->quit_requested=true;
+        context->quit_requested = true;
     }
 }
 
