@@ -9,7 +9,9 @@
 SLContext *context{nullptr};
 int main(int argc, char *argv[])
 {
-    int32 result=sl_create_context(&context,800,600,false);
+    int32 screen_w=800;
+    int32 screen_h=600;
+    int32 result=sl_create_context(&context,screen_w,screen_h,false);
     
     do {
         sl_process_input(context);

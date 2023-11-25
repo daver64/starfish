@@ -22,8 +22,6 @@ static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 }
 int32 sl_create_context(SLContext **context,int32 width,int32 height,bool fullscreen)
 {
-    assert(*context);
-
     glfwSetErrorCallback(glfw_error_callback);
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
