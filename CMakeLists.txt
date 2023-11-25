@@ -54,7 +54,8 @@ endif(MINGW)
 ##
 if(MSVC)
 
-add_executable(starfish src/starfish.cpp
+add_executable(starfish 
+    src/starfish.cpp
     src/main_audio.cpp
     src/main_graphics.cpp
     src/main_networking.cpp
@@ -78,7 +79,8 @@ add_executable(starfish src/starfish.cpp
 endif(MSVC)
 
 if(UNIX)
-add_executable(starfish src/starfish.cpp
+add_executable(starfish 
+    src/starfish.cpp
     src/main_audio.cpp
     src/main_graphics.cpp
     src/main_networking.cpp

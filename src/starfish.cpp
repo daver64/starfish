@@ -1,5 +1,3 @@
-
-#include "starfish.h"
 #include "sl.h"
 #include "sl_draw.h"
 #include "sl_framebuffer.h"
