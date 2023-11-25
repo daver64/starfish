@@ -56,6 +56,8 @@ if(MSVC)
 add_executable(starfish src/starfish.cpp
     src/main_audio.cpp
     src/main_graphics.cpp
+    src/sl_fastnoise.cpp
+    src/sl_fontdata.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
@@ -70,6 +72,8 @@ if(UNIX)
 add_executable(starfish src/starfish.cpp
     src/main_audio.cpp
     src/main_graphics.cpp
+    src/sl_fastnoise.cpp
+    src/sl_fontdata.cpp    
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp

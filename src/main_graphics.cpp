@@ -1,3 +1,4 @@
+#include "starfish.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -10,7 +11,7 @@
 #include <cstdio>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include "starfish.h"
+
 static void glfw_error_callback(int error, const char *description)
 {
     fprintf(stderr, "Error %d : %s\n", error, description);
