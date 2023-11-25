@@ -44,3 +44,9 @@ typedef uint32_t pixel32;
 int main_audio();
 int main_graphics();
 int main_networking();
+
+struct SLContext;
+int32 sl_create_context(SLContext **context,int32 width,int32 height,bool fullscreen);
+int32 sl_destroy_context(SLContext **context);
+bool sl_want_to_quit(SLContext *context);
+void sl_quit(SLContext *context);
