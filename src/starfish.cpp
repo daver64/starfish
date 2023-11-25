@@ -9,7 +9,7 @@ int main_networking();
 int main(int argc, char *argv[])
 {
 
-    main_audio();
+   // main_audio();
     main_graphics();
 
     return 0;
