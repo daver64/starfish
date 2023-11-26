@@ -1,6 +1,6 @@
 /**
- * (c) 2023 David Rowbotham thedaver64@gmail.com
- */
+ * (c) 2023 David Rowbotham thedaver64@gmail.com and Toni Ylisirniö 
+*/
 #include "sl.h"
 
 const float64 PI = 3.14159265358979323846264338327950288;

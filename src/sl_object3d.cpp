@@ -1,3 +1,6 @@
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com and Toni Ylisirniö 
+*/
 #include "sl.h"
 
 Object3d* find_common_parent(Object3d* o1, Object3d* o2,

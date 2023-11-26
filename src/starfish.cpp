@@ -28,26 +28,19 @@ int main(int argc, char *argv[])
         sl_ortho(context);
         sl_clrscr(context);
 
-
         // test drawing.
-        sl_push_matrix();
         sl_disable_texturing();
-        sl_disable_blending();
         sl_begin_triangles(geometry);
-        sl_triangle(geometry,10,100,100,10,200,100,
-            x11colours::red,x11colours::green,x11colours::blue);
+        sl_triangle(geometry,10,100,100,10,200,100,x11colours::red,x11colours::green,x11colours::blue);
         sl_end_triangles(geometry);
-        sl_pop_matrix();
 
-        sl_push_matrix();
         sl_enable_texturing();
         sl_bind_texture(geometry,tex);
         sl_begin_quads(geometry);
         sl_rectangle(geometry,512,200,128,128,x11colours::white);
         sl_end_quads(geometry);
         sl_unbind_texture(geometry);
-        sl_pop_matrix();
-
+  
 
         sl_swap(context);
         sl_poll_input(context);
