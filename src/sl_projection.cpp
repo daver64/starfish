@@ -23,6 +23,10 @@
 #include "sl_primitivebuffer.h"
 #include <cassert>
 
+void matrix_apply(mat4x4 &m)
+{
+    glMultMatrixf((GLfloat*)&m[0]);
+}
 void sl_projection(int32 width, int32 height, float32 fov, float32 nearz, float32 farz)
 {
 	glViewport(0, 0, width, height);
