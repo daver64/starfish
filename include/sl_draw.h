@@ -21,6 +21,8 @@ void sl_ortho(SLContext *context, bool flip = false, float64 near_z = -1.0,float
 void sl_putpixel(SLTexture *target,int32 x,int32 y, pixel32 colour);
 pixel32 sl_getpixel(SLTexture *target,int32 x,int32 y);
 
+void sl_enable_multisampling();
+void sl_disable_multisampling();
 void sl_disable_arrays();
 void sl_enable_arrays();
 void sl_cull_back();

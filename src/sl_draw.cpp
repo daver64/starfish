@@ -22,6 +22,15 @@
 #include "sl_texture.h"
 #include "sl_primitivebuffer.h"
 #include <cassert>
+
+void sl_enable_multisampling()
+{
+	glEnable(GL_MULTISAMPLE);	
+}
+void sl_disable_multisampling()
+{
+	glDisable(GL_MULTISAMPLE);
+}
 void sl_push_matrix()
 {
 	glPushMatrix();

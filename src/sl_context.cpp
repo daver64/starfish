@@ -1,5 +1,6 @@
 /**
  * (c) 2023 David Rowbotham thedaver64@gmail.com
+ * 
 */
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -18,7 +19,7 @@
 #include <cstdio>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-
+#include "sl_draw.h"
 static void glfw_error_callback(int error, const char *description)
 {
     fprintf(stderr, "Error %d : %s\n", error, description);
@@ -48,6 +49,7 @@ int32 sl_create_context(SLContext **context,const char *titletext, int32 width, 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSwapInterval(1);
 	//glEnable(GL_MULTISAMPLE);
+    sl_enable_multisampling();
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 	//glHint(GL_TEXTURE_COMPRESSION_HINT, GL_NICEST);
 
