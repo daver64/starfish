@@ -3,7 +3,6 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-//#define GLFW_INCLUDE_GLEXT
 #include <GLFW/glfw3.h>
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -17,22 +16,6 @@
 int main_graphics()
 {
     int32 result = EXIT_SUCCESS;
- /*   glfwSetErrorCallback(glfw_error_callback);
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    GLFWwindow *window = glfwCreateWindow(800, 600, "Starfish", NULL, NULL);
-    if (!window)
-    {
-        fprintf(stderr, "failed to create window\n");
-        glfwTerminate();
-        return -1;
-    }*/
-   // glfwMakeContextCurrent(window);
-   // glViewport(0, 0, 800, 600);
-   // glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-   // glfwSwapInterval(1);
 
    /* IMGUI_CHECKVERSION();
     ImGui::CreateContext();

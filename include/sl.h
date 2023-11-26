@@ -13,6 +13,17 @@
 #endif
 #include "glm/glm.hpp"
 
+#ifndef GLuint
+typedef unsigned int GLuint;
+#endif
+
+#ifndef GLRef
+typedef unsigned int GLRef;
+#endif
+
+#ifndef GLenum
+	typedef unsigned int GLenum;
+#endif
 using glm::vec2;
 using glm::vec3;
 using glm::vec4;
