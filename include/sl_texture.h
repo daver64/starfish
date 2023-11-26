@@ -16,5 +16,3 @@ public:
     pixel32 *pixeldata;
 };
 
-void sl_enable_texture_filtering();
-void sl_disable_texture_filtering();
