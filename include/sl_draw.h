@@ -18,6 +18,14 @@ void sl_clrscr(SLContext *context,pixel32 colour);
 void sl_clrscr(SLContext *context);
 void sl_clearcolour(SLContext *context,pixel32 colour);
 void sl_ortho(SLContext *context, bool flip = false, float64 near_z = -1.0,float64 far_z = 1.0);
+void sl_projection(int32 width, int32 height, float32 fov, float32 nearz, float32 farz);
+void sl_rotate_x(float64 angle);
+void sl_rotate_y(float64 angle);
+void sl_rotate_z(float64 angle);
+void sl_rotate_x(float32 angle);
+void sl_rotate_y(float32 angle);
+void sl_rotate_z(float32 angle);
+void sl_translatef(float32 x, float32 y, float32 z);
 void sl_putpixel(SLTexture *target,int32 x,int32 y, pixel32 colour);
 pixel32 sl_getpixel(SLTexture *target,int32 x,int32 y);
 

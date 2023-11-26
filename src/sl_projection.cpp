@@ -23,6 +23,43 @@
 #include "sl_primitivebuffer.h"
 #include <cassert>
 
+void sl_projection(int32 width, int32 height, float32 fov, float32 nearz, float32 farz)
+{
+	glViewport(0, 0, width, height);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(fov, (float32)width / (float32)height, nearz, farz);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+void sl_rotate_x(float64 angle)
+{
+	glRotated(angle, 1, 0, 0);
+}
+void sl_rotate_y(float64 angle)
+{
+	glRotated(angle, 0, 1, 0);
+}
+void sl_rotate_z(float64 angle)
+{
+	glRotated(angle, 0, 0, 1);
+}
+void sl_rotate_x(float32 angle)
+{
+	glRotatef(angle, 1, 0, 0);
+}
+void sl_rotate_y(float32 angle)
+{
+	glRotatef(angle, 0, 1, 0);
+}
+void sl_rotate_z(float32 angle)
+{
+	glRotatef(angle, 0, 0, 1);
+}
+void sl_translatef(float32 x, float32 y, float32 z)
+{
+	glTranslatef(x, y, z);
+}
 
 void sl_lookat(vec3 eye, vec3 center, vec3 up)
 {
