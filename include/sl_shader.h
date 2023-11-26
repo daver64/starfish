@@ -1,6 +1,6 @@
 #pragma once
-#include "starfish.h"
+#include "sl.h"
 
-class Shader {
+class SLShader {
 
 };

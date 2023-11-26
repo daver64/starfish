@@ -16,6 +16,7 @@
 #include "sl_context.h"
 #include "sl_draw.h"
 #include "sl_texture.h"
+#include "sl_primitivebuffer.h"
 #include <cassert>
 
 void sl_clrscr(SLContext *context,pixel32 colour)
@@ -237,3 +238,18 @@ void sl_enable_texture_filtering()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
+
+
+void sl_trianglefill(SLPrimitiveBuffer *target,
+    float32 x1, float32 y1, 
+    float32 x2, float32 y2, 
+    float32 x3, float32 y3, pixel32 colour)
+{
+	target->colour(colour);
+	target->begin(GL_TRIANGLES);
+	target->vertex(vec2(x1, y1));
+	target->vertex(vec2(x2, y2));
+	target->vertex(vec2(x3, y3));
+	target->end();
+}
+

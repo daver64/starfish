@@ -9,19 +9,6 @@ SLContext *context{nullptr};
 SLTexture *tex{nullptr};
 SLPrimitiveBuffer *geometry{nullptr};
 
-void sl_trianglefill(SLPrimitiveBuffer *target,
-    float32 x1, float32 y1, 
-    float32 x2, float32 y2, 
-    float32 x3, float32 y3, pixel32 colour)
-{
-	//GLPrimitiveBuffer* pbuf = gl_get_immediate();
-	target->colour(colour);
-	target->begin(GL_TRIANGLES);
-	target->vertex(vec2(x1, y1));
-	target->vertex(vec2(x2, y2));
-	target->vertex(vec2(x3, y3));
-	target->end();
-}
 
 int main(int argc, char *argv[])
 {       

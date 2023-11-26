@@ -1,7 +1,7 @@
 #pragma once
-#include "starfish.h"
+#include "sl.h"
 
 
-class FrameBuffer {
+class SLFrameBuffer {
 
 };

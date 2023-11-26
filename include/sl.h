@@ -125,6 +125,9 @@ int main_networking();
 
 struct SLContext;
 class SLTexture;
+class SLPrimitiveBuffer;
+class SLShader;
+
 extern "C" {
 void sl_load_gl_extensions();
 }

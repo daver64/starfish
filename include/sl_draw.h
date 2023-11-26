@@ -50,3 +50,8 @@ void sl_enable_multisample();
 void sl_disable_multisample();
 void sl_enable_mipmapping();
 void sl_disable_mipmapping();
+
+void sl_trianglefill(SLPrimitiveBuffer *target,
+    float32 x1, float32 y1, 
+    float32 x2, float32 y2, 
+    float32 x3, float32 y3, pixel32 colour);
