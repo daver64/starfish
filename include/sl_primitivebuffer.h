@@ -8,10 +8,13 @@
 #include <windows.h>
 #undef max
 #undef min
+
 #include <GL/GL.h>
 #include <GL/GLU.h>
 #include "sl_glext.h"
 #else
+#define GL_GLEXT_PROTOTYPES
+
 #include <GL/gl.h>
 #include <GL/glext.h>
 #endif
