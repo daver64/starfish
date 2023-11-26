@@ -6,8 +6,11 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-//#define GLFW_INCLUDE_GLEXT
+#define GLFW_INCLUDE_GLEXT
 #include <GLFW/glfw3.h>
+//#ifdef _WIN32
+//#include "sl_glext.h"
+//#endif
 //#include <sl_glext.h>
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -29,8 +32,8 @@ int32 sl_create_context(SLContext **context,const char *titletext, int32 width, 
 {
     glfwSetErrorCallback(glfw_error_callback);
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
     glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
     GLFWwindow *window = glfwCreateWindow(width, height, titletext, NULL, NULL);
@@ -45,6 +48,13 @@ int32 sl_create_context(SLContext **context,const char *titletext, int32 width, 
     glViewport(0, 0, width, height);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSwapInterval(1);
+	//glEnable(GL_MULTISAMPLE);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	//glHint(GL_TEXTURE_COMPRESSION_HINT, GL_NICEST);
+
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_NORMALIZE);
+	glShadeModel(GL_SMOOTH);
 
     GLFWimage images[2];
     images[0].pixels = stbi_load("bud.png", &images[0].width, &images[0].height, 0, 4);

@@ -40,9 +40,17 @@ void sl_clearcolour(SLContext *context,pixel32 colour)
     glClearColor(r,g,b,0);
 }
  
-void sl_ortho2d(SLContext *context)
+void sl_ortho(SLContext *context, bool flip, float64 near_z,float64 far_z)
 {
-    glViewport(0, 0, context->width, context->height);
+	glViewport(0, 0, context->width, context->height);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	if (!flip)
+		glOrtho(0, context->width, context->height, 0, near_z, far_z);
+	else
+		glOrtho(0, context->width, 0, context->height, near_z, far_z);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }
 void sl_putpixel(SLTexture *target,int32 x,int32 y, pixel32 colour)
 {

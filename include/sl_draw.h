@@ -7,7 +7,7 @@
 void sl_clrscr(SLContext *context,pixel32 colour);
 void sl_clrscr(SLContext *context);
 void sl_clearcolour(SLContext *context,pixel32 colour);
-void sl_ortho2d(SLContext *context);
+void sl_ortho(SLContext *context, bool flip = false, float64 near_z = -1.0,float64 far_z = 1.0);
 void sl_putpixel(SLTexture *target,int32 x,int32 y, pixel32 colour);
 pixel32 sl_getpixel(SLTexture *target,int32 x,int32 y);
 
