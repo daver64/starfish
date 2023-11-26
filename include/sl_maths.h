@@ -8,6 +8,7 @@
 
 #include <xmmintrin.h>
 #include <vector>
+#include <map>
 
 extern const double_t PI;
 extern const double_t TAU;
@@ -140,7 +141,70 @@ float64 gcircle_distance(float64 lon1, float64 lat1, float64 lon2, float64 lat2,
 
 void matrix_apply(mat4x4 &m);
 
+class Moments
+{
+public:
+	vec3 angular_momentum;
+	quat spin;
+	quat orientation;
+	vec3 angular_velocity;
+	vec3 inertia_tensor;
+	void recalculate();
+};
 
+struct Deriv
+{
+	quat spin;
+	vec3 torque;
+};
+
+class Object3d
+{
+public:
+	Object3d(Object3d* parent = nullptr);
+	mat4x4 local_to_relative();
+	mat4x4 relative_to_parent();
+	mat4x4 local_to_parent();
+	void pitch(float32 p);
+	void roll(float32 r);
+	void yaw(float32 y);
+	void set_rotation(const quat& q);
+	void apply_forces(float32 dt);
+	void apply_gravity_force(float32 dt);
+	void apply_aerodynamic_force(float32 dt);
+	void apply_angular_force(float32 dt);
+	void apply_linear_force(float32 dt);
+	vec3 gravity_acceleration(const vec3& affected_body_position, const vec3& gravitating_body_position,
+		double gravitating_body_mass);
+	vec3 integrate_rk6(float32 dt);
+	Deriv evaluate(Moments& state);
+	Deriv evaluate(Moments& state, float32 dt, Deriv& derivative);
+
+	vec3 position;
+	vec3 velocity;
+	vec3 solar_position;
+	Object3d* parent;
+	Object3d* soibody;
+	std::map<int32_t, Object3d*> child_objects;
+	//! gui helper. do not touch.
+	bool fixed;
+	vec3 touchdown_points[3];
+	mat4x4 rmat;
+	quat rquat;
+	float32 radius;
+	float32 mass;
+	float32 atm_p, atm_rho, atm_q;
+	float32 atm_limalt;// how high can a fly fly when a fly flies everso high?
+	float32 atm_p0;	// pressure at alt = 0
+	float32 atm_mu;	// average molecular mass of atmospheric gasses ( kg / mol )
+	float32 atm_T;	// average temperature of atmosphere (we're isothermal until we have something better)
+	Moments previous_rotary, rotary;
+	float32 friction;
+	bool deleting;
+	float32 angular_size;
+	vec3 linear_acceleration;
+	vec3 angular_acceleration;
+};
 
 #define sgn(x) ((x<0)?-1:((x>0)?1:0))
 
