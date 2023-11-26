@@ -8,8 +8,8 @@ void sl_clrscr(SLContext *context,pixel32 colour);
 void sl_clrscr(SLContext *context);
 void sl_clearcolour(SLContext *context,pixel32 colour);
 void sl_ortho2d(SLContext *context);
-void sl_putpixel(Texture *target,int32 x,int32 y, pixel32 colour);
-pixel32 sl_getpixel(Texture *target,int32 x,int32 y);
+void sl_putpixel(SLTexture *target,int32 x,int32 y, pixel32 colour);
+pixel32 sl_getpixel(SLTexture *target,int32 x,int32 y);
 
 void sl_cull_back();
 void sl_cull_front();

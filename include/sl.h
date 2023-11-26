@@ -6,7 +6,17 @@
 #include <cstdint>
 #define FN_USE_DOUBLES
 #include "fastnoise.h"
-
+typedef int8_t int8;
+typedef uint8_t uint8;
+typedef int16_t int16;
+typedef uint16_t uint16;
+typedef int32_t int32;
+typedef uint32_t uint32;
+typedef int64_t int64;
+typedef uint64_t uint64;
+typedef uint32_t pixel32;
+typedef float float32;
+typedef double float64;
 /**
  * Bits and bobs that need to be available everywhere. 
  * 
@@ -48,16 +58,16 @@ class polar {
 public:
 	union
 	{
-		float d[4] = { 0,0,0,0 };
-		struct { float ra, dec, rad, w; };
-		struct { float lon, lat, alt, p; };
+		float32 d[4] = { 0,0,0,0 };
+		struct { float32 ra, dec, rad, w; };
+		struct { float32 lon, lat, alt, p; };
 	};
-	polar(const float& lon = 0,
-		const float& lat = 0,
-		const float& alt = 0);
-	polar(const float p[3]);
+	polar(const float32& lon = 0,
+		const float32& lat = 0,
+		const float32& alt = 0);
+	polar(const float32 p[3]);
 	polar(const vec3& pos);
-	float& operator[](size_t index);
+	float32& operator[](size_t index);
 	vec3 polar_to_cartesian(const polar& pos);
 	polar cartesian_to_polar(const vec3& pos);
 	vec3 to_cartesian();
@@ -68,16 +78,16 @@ class dpolar {
 public:
 	union
 	{
-		double d[4] = { 0,0,0,0 };
-		struct { double ra, dec, rad, w; };
-		struct { double lon, lat, alt, p; };
+		float64 d[4] = { 0,0,0,0 };
+		struct { float64 ra, dec, rad, w; };
+		struct { float64 lon, lat, alt, p; };
 	};
-	dpolar(const double& lon = 0,
-		const double& lat = 0,
-		const double& alt = 0);
-	dpolar(const double p[3]);
+	dpolar(const float64& lon = 0,
+		const float64& lat = 0,
+		const float64& alt = 0);
+	dpolar(const float64 p[3]);
 	dpolar(const dvec3& pos);
-	double& operator[](size_t index);
+	float64& operator[](size_t index);
 	dvec3 polar_to_cartesian(const dpolar& pos);
 	dpolar cartesian_to_polar(const dvec3& pos);
 	dvec3 to_cartesian();
@@ -85,18 +95,18 @@ public:
 };
 
 #define sgn(x) ((x<0)?-1:((x>0)?1:0))
-#define argb(a,r,g,b) ( ((uint32_t)(a)<<24) |		\
-			((((uint32_t)r)<<24)>>8) |	\
-			((((uint32_t)g)<<24)>>16) |	\
-			((((uint32_t)b)<<24)>>24))
+#define argb(a,r,g,b) ( ((uint32)(a)<<24) |		\
+			((((uint32)r)<<24)>>8) |	\
+			((((uint32)g)<<24)>>16) |	\
+			((((uint32)b)<<24)>>24))
 
 #define rgb(r,g,b) argb(255,(r),(g),(b))
-#define argb_f(a,r,g,b) argb((uint8_t)((a)*255.0f),(uint8_t)((r)*255.0f),(uint8_t)((g)*255.0f),(uint8_t)((b)*255.0f))
+#define argb_f(a,r,g,b) argb((uint8)((a)*255.0f),(uint8)((r)*255.0f),(uint8)((g)*255.0f),(uint8)((b)*255.0f))
 #define rgb_f(r,g,b) argb_f(1.0f,(r),(g),(b))
-#define geta(p) ((uint32_t)((p))>>24)
-#define getr(p) (((uint32_t)((p))<<8)>>24)
-#define getg(p) (((uint32_t)((p))<<16)>>24)
-#define getb(p) (((uint32_t)((p))<<24)>>24)
+#define geta(p) ((uint32)((p))>>24)
+#define getr(p) (((uint32)((p))<<8)>>24)
+#define getg(p) (((uint32)((p))<<16)>>24)
+#define getb(p) (((uint32)((p))<<24)>>24)
 
 #define geta_nf(p) (geta(p)/255.0f)
 #define getr_nf(p) (getr(p)/255.0f)
@@ -108,22 +118,13 @@ inline T clamp(T a, U low, V high)
 	T val = a < low ? low : a;
 	return val > high ? high : val;
 }
-typedef int8_t int8;
-typedef uint8_t uint8;
-typedef int16_t int16;
-typedef uint16_t uint16;
-typedef int32_t int32;
-typedef uint32_t uint32;
-typedef int64_t int64;
-typedef uint64_t uint64;
-typedef uint32_t pixel32;
 
 int main_audio();
 int main_graphics();
 int main_networking();
 
 struct SLContext;
-class Texture;
+class SLTexture;
 extern "C" {
 void sl_load_gl_extensions();
 }

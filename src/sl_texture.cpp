@@ -11,7 +11,7 @@
 
 #include "sl_texture.h"
  
-Texture::Texture(int32 width, int32 height, bool mipmapped)
+SLTexture::SLTexture(int32 width, int32 height, bool mipmapped)
     : width(width), height(height), mipmapped(mipmapped)
 {
     pixel32 *pixeldata=new pixel32[width*height];
@@ -35,7 +35,7 @@ Texture::Texture(int32 width, int32 height, bool mipmapped)
 	}
 
 }
-Texture::~Texture()
+SLTexture::~SLTexture()
 {
     delete[] pixeldata;
     glDeleteTextures(1,&glref);

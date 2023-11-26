@@ -4,10 +4,10 @@
 #pragma once
 #include "sl.h"
 
-class Texture {
+class SLTexture {
 public:
-    Texture(int32 width,int32 height,bool mipmapped);
-    ~Texture();
+    SLTexture(int32 width,int32 height,bool mipmapped);
+    ~SLTexture();
 
     int32 width;
     int32 height;

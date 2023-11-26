@@ -44,13 +44,13 @@ void sl_ortho2d(SLContext *context)
 {
     glViewport(0, 0, context->width, context->height);
 }
-void sl_putpixel(Texture *target,int32 x,int32 y, pixel32 colour)
+void sl_putpixel(SLTexture *target,int32 x,int32 y, pixel32 colour)
 {
     assert(x>=0 && x<target->width);
     assert(y>=0 && y<target->height);
     target->pixeldata[y*target->width+x]=colour;
 }
-pixel32 sl_getpixel(Texture *target,int32 x,int32 y)
+pixel32 sl_getpixel(SLTexture *target,int32 x,int32 y)
 {
     assert(x>=0 && x<target->width);
     assert(y>=0 && y<target->height);

@@ -7,7 +7,7 @@
 #include <functional>
 #include <cmath>
 
-PrimitiveBuffer::PrimitiveBuffer(GLenum primitive, GLenum usage) 
+SLPrimitiveBuffer::SLPrimitiveBuffer(GLenum primitive, GLenum usage) 
 	:primitive(primitive), usage(usage)
 {
 	current_vertex = vec3{ 0.0f,0.0f,0.0f };
@@ -36,12 +36,12 @@ PrimitiveBuffer::PrimitiveBuffer(GLenum primitive, GLenum usage)
 	vtexcoord3.reserve(64000);
 	glGenBuffers(1, &vbo_id);
 }
-PrimitiveBuffer::~PrimitiveBuffer()
+SLPrimitiveBuffer::~SLPrimitiveBuffer()
 {
 	if(!vbo_deleted)
 		glDeleteBuffers(1, &vbo_id);
 }
-void PrimitiveBuffer::vertex(vec3 v)
+void SLPrimitiveBuffer::vertex(vec3 v)
 {
 	current_vertex = vec3{ v.x + offset3d.x ,v.y + offset3d.y, v.z + offset3d.z };
 	vertices.emplace_back(current_vertex);
@@ -52,7 +52,7 @@ void PrimitiveBuffer::vertex(vec3 v)
 	vtexcoord2.emplace_back(current_texcoord2);
 	vtexcoord3.emplace_back(current_texcoord3);
 }
-void PrimitiveBuffer::vertex(vec2 v)
+void SLPrimitiveBuffer::vertex(vec2 v)
 {
 	current_vertex = vec3{ v.x + offset2d.x, v.y + offset2d.y, 0.0f };
 	vertices.emplace_back(current_vertex);
@@ -63,27 +63,27 @@ void PrimitiveBuffer::vertex(vec2 v)
 	vtexcoord2.emplace_back(current_texcoord2);
 	vtexcoord3.emplace_back(current_texcoord3);
 }
-void PrimitiveBuffer::vertex(float x, float y, float z)
+void SLPrimitiveBuffer::vertex(float32 x, float32 y, float32 z)
 {
 	vertex(vec3(x + offset3d.x,y + offset3d.y, z + offset3d.z));
 }
-void PrimitiveBuffer::normal(vec3 n)
+void SLPrimitiveBuffer::normal(vec3 n)
 {
 	current_normal = vec3{ n.x,n.y,n.z };
 }
-void PrimitiveBuffer::normal(float nx, float ny, float nz)
+void SLPrimitiveBuffer::normal(float32 nx, float32 ny, float32 nz)
 {
 	normal(vec3(nx,ny,nz));
 }
-void PrimitiveBuffer::set_active_texture_unit(int32 unit)
+void SLPrimitiveBuffer::set_active_texture_unit(int32 unit)
 {
 	active_texture_unit = clamp(unit, 0, 3);
 }
-int32_t PrimitiveBuffer::get_active_texture_unit()
+int32_t SLPrimitiveBuffer::get_active_texture_unit()
 {
 	return active_texture_unit;
 }
-void PrimitiveBuffer::texcoord(vec2 t)
+void SLPrimitiveBuffer::texcoord(vec2 t)
 {
 	switch (active_texture_unit)
 	{
@@ -104,7 +104,7 @@ void PrimitiveBuffer::texcoord(vec2 t)
 		break;
 	}
 }
-void PrimitiveBuffer::texcoord(float_t u, float_t v)
+void SLPrimitiveBuffer::texcoord(float32 u, float32 v)
 {
 	switch (active_texture_unit)
 	{
@@ -125,51 +125,51 @@ void PrimitiveBuffer::texcoord(float_t u, float_t v)
 		break;
 	}
 }
-void PrimitiveBuffer::texcoord0(vec2 t)
+void SLPrimitiveBuffer::texcoord0(vec2 t)
 {
 	current_texcoord0 = vec2{ t.s,t.t };
 }
-void PrimitiveBuffer::texcoord1(vec2 t)
+void SLPrimitiveBuffer::texcoord1(vec2 t)
 {
 	current_texcoord1 = vec2{ t.s,t.t };
 }
-void PrimitiveBuffer::texcoord2(vec2 t)
+void SLPrimitiveBuffer::texcoord2(vec2 t)
 {
 	current_texcoord2 = vec2{ t.s,t.t };
 }
-void PrimitiveBuffer::texcoord3(vec2 t)
+void SLPrimitiveBuffer::texcoord3(vec2 t)
 {
 	current_texcoord3 = vec2{ t.s,t.t };
 }
-void PrimitiveBuffer::texcoord0(float u, float v)
+void SLPrimitiveBuffer::texcoord0(float32 u, float32 v)
 {
 	texcoord0(vec2(u, v));
 }
-void PrimitiveBuffer::texcoord1(float u, float v)
+void SLPrimitiveBuffer::texcoord1(float32 u, float32 v)
 {
 	texcoord1(vec2(u, v));
 }
-void PrimitiveBuffer::texcoord2(float u, float v)
+void SLPrimitiveBuffer::texcoord2(float32 u, float32 v)
 {
 	texcoord2(vec2(u, v));
 }
-void PrimitiveBuffer::texcoord3(float u, float v)
+void SLPrimitiveBuffer::texcoord3(float32 u, float32 v)
 {
 	texcoord3(vec2(u, v));
 }
-const vec3 PrimitiveBuffer::get_vertex(int32 index)
+const vec3 SLPrimitiveBuffer::get_vertex(int32 index)
 {
 	return vec3(vertices[index].x, vertices[index].y, vertices[index].y);
 }
-vec2 PrimitiveBuffer::get_vertex2(int32 index)
+vec2 SLPrimitiveBuffer::get_vertex2(int32 index)
 {
 	return vec2(vertices[index].x, vertices[index].y);
 }
-vec3 PrimitiveBuffer::get_normal(int32 index)
+vec3 SLPrimitiveBuffer::get_normal(int32 index)
 {
 	return vec3(normals[index].x, normals[index].y, normals[index].z);
 }
-vec2 PrimitiveBuffer::get_texcoord(int32 index, int32 texture_index)
+vec2 SLPrimitiveBuffer::get_texcoord(int32 index, int32 texture_index)
 {
 	vec2 result{ 0,0 };
 	switch (texture_index)
@@ -206,19 +206,19 @@ vec2 PrimitiveBuffer::get_texcoord(int32 index, int32 texture_index)
 //	current_colour.b = c.b;
 
 //}
-void PrimitiveBuffer::colour(pixel32 c)
+void SLPrimitiveBuffer::colour(pixel32 c)
 {
-	const float r = getr_nf(c);
-	const float g = getg_nf(c);
-	const float b = getb_nf(c);
-	const float a = geta_nf(c);
+	const float32 r = getr_nf(c);
+	const float32 g = getg_nf(c);
+	const float32 b = getb_nf(c);
+	const float32 a = geta_nf(c);
 	current_colour = vec4{ r,g,b,a };
 	//current_colour.r = r;
 	//current_colour.g = g;
 	//current_colour.b = b;
 	//current_colour.a = a;
 }
-void PrimitiveBuffer::colour(float r, float g, float b, float a)
+void SLPrimitiveBuffer::colour(float32 r, float32 g, float32 b, float32 a)
 {
 	current_colour = vec4{ r,g,b,a };
 	//current_colour.r = r;
@@ -227,33 +227,33 @@ void PrimitiveBuffer::colour(float r, float g, float b, float a)
 	//current_colour.a = a;
 }
 
-void PrimitiveBuffer::point(float x1, float y1, pixel32 c)
+void SLPrimitiveBuffer::point(float32 x1, float32 y1, pixel32 c)
 {
 	colour(c);
 	vertex(vec2(x1 , y1 ));
 }
-void PrimitiveBuffer::line(float x1, float y1, float x2, float y2, pixel32 c)
+void SLPrimitiveBuffer::line(float32 x1, float32 y1, float32 x2, float32 y2, pixel32 c)
 {
 	pixel32 colours[2]{ c,c };
 	line(x1 , y1 , x2 , y2 , colours);
 }
-void PrimitiveBuffer::line(float x1, float y1, float x2, float y2, pixel32 colours[2])
+void SLPrimitiveBuffer::line(float32 x1, float32 y1, float32 x2, float32 y2, pixel32 colours[2])
 {
 	colour(colours[0]);
 	vertex(vec2(x1 , y1 ));
 	colour(colours[1]);
 	vertex(vec2(x2 , y2 ));
 }
-void PrimitiveBuffer::rect(float x1, float y1, float width, float height, pixel32 c)
+void SLPrimitiveBuffer::rect(float32 x1, float32 y1, float32 width, float32 height, pixel32 c)
 {
 	pixel32 colours[4]{ c,c,c,c };
 	rect(x1 , y1 , width, height, colours);
 }
 
-void PrimitiveBuffer::rect(float x1, float y1, float width, float height, pixel32 colours[4])
+void SLPrimitiveBuffer::rect(float32 x1, float32 y1, float32 width, float32 height, pixel32 colours[4])
 {
-	float x2 = x1 + width;
-	float y2 = y1 + height;
+	float32 x2 = x1 + width;
+	float32 y2 = y1 + height;
 
 	texcoord(vec2(0, 0));
 	colour(colours[0]);
@@ -281,19 +281,19 @@ void PrimitiveBuffer::rect(float x1, float y1, float width, float height, pixel3
 #define PIf (3.1415926f)
 #endif
 
-void PrimitiveBuffer::circle(float x, float y, float radius, pixel32 ccolour, int32 numsegments)
+void SLPrimitiveBuffer::circle(float32 x, float32 y, float32 radius, pixel32 ccolour, int32 numsegments)
 {
 	colour(ccolour);
-	const float dth = PIf / numsegments;
+	const float32 dth = PIf / numsegments;
 	if (primitive == GL_LINES)
 	{
-		for (float theta = 0; theta <= 2.0f * PIf; theta += dth)
+		for (float32 theta = 0; theta <= 2.0f * PIf; theta += dth)
 		{
-			const float x1 = (x + radius * cosf(theta));
-			const float y1 = (y + radius * sinf(theta));
+			const float32 x1 = (x + radius * cosf(theta));
+			const float32 y1 = (y + radius * sinf(theta));
 			theta += dth;
-			const float x2 = (x + radius * cosf(theta));
-			const float y2 = (y + radius * sinf(theta));
+			const float32 x2 = (x + radius * cosf(theta));
+			const float32 y2 = (y + radius * sinf(theta));
 			vertex(vec2(x1 , y1 ));
 			vertex(vec2(x2 , y2 ));
 			theta -= dth;
@@ -302,14 +302,14 @@ void PrimitiveBuffer::circle(float x, float y, float radius, pixel32 ccolour, in
 	else if (primitive == GL_TRIANGLES)
 	{
 		colour(ccolour);
-		for (float theta = 0; theta <= 2.0f * PIf; theta += dth)
+		for (float32 theta = 0; theta <= 2.0f * PIf; theta += dth)
 		{
-			const float x1 = (x + radius * cosf(theta));
-			const float y1 = (y + radius * sinf(theta));
-			const float last_theta = theta;
+			const float32 x1 = (x + radius * cosf(theta));
+			const float32 y1 = (y + radius * sinf(theta));
+			const float32 last_theta = theta;
 			theta += dth;
-			const float x2 = (x + radius * cosf(theta));
-			const float y2 = (y + radius * sinf(theta));
+			const float32 x2 = (x + radius * cosf(theta));
+			const float32 y2 = (y + radius * sinf(theta));
 			vertex(vec2(x2 , y2 ));
 			vertex(vec2(x1 , y1 ));
 			vertex(vec2(x , y ));
@@ -317,36 +317,36 @@ void PrimitiveBuffer::circle(float x, float y, float radius, pixel32 ccolour, in
 		}
 	}
 }
-void PrimitiveBuffer::ellipse(float x, float y, float width, float height, uint32 ccolour, int32 numsegments)
+void SLPrimitiveBuffer::ellipse(float32 x, float32 y, float32 width, float32 height, uint32 ccolour, int32 numsegments)
 {
 	colour(ccolour);
 	if (primitive == GL_LINES)
 	{
-		for (float theta = 0.0f; theta < (2.0f * PIf); theta += (PIf / (float)numsegments))
+		for (float32 theta = 0.0f; theta < (2.0f * PIf); theta += (PIf / (float32)numsegments))
 		{
-			const float x1 = width * cosf(theta) + x;
-			const float y1 = height * sinf(theta) + y;
-			const float x2 = width * cosf(theta + (PIf / (float)numsegments)) + x;
-			const float y2 = height * sinf(theta + (PIf / (float)numsegments)) + y;
+			const float32 x1 = width * cosf(theta) + x;
+			const float32 y1 = height * sinf(theta) + y;
+			const float32 x2 = width * cosf(theta + (PIf / (float32)numsegments)) + x;
+			const float32 y2 = height * sinf(theta + (PIf / (float32)numsegments)) + y;
 			vertex(vec2(x1 , y1 ));
 			vertex(vec2(x2 , y2 ));
 		}
 	}
 	else if (primitive == GL_TRIANGLES)
 	{
-		for (float theta = 0.0f; theta < (2.0f * PIf); theta += (PIf / (float)numsegments))
+		for (float32 theta = 0.0f; theta < (2.0f * PIf); theta += (PIf / (float32)numsegments))
 		{
-			const float x1 = width * cosf(theta) + x;
-			const float y1 = height * sinf(theta) + y;
-			const float x2 = width * cosf(theta + (PIf / (float)numsegments)) + x;
-			const float y2 = height * sinf(theta + (PIf / (float)numsegments)) + y;
+			const float32 x1 = width * cosf(theta) + x;
+			const float32 y1 = height * sinf(theta) + y;
+			const float32 x2 = width * cosf(theta + (PIf / (float32)numsegments)) + x;
+			const float32 y2 = height * sinf(theta + (PIf / (float32)numsegments)) + y;
 			vertex(vec2(x2 , y2 ));
 			vertex(vec2(x1 , y1 ));
 			vertex(vec2(x , y ));
 		}
 	}
 }
-void PrimitiveBuffer::triangle(float x1, float y1, float x2, float y2, float x3, float y3, uint32 colours[3])
+void SLPrimitiveBuffer::triangle(float32 x1, float32 y1, float32 x2, float32 y2, float32 x3, float32 y3, uint32 colours[3])
 {
 	colour(colours[0]);
 	vertex(vec2(x1 , y1 ));
@@ -355,7 +355,7 @@ void PrimitiveBuffer::triangle(float x1, float y1, float x2, float y2, float x3,
 	colour(colours[2]);
 	vertex(vec2(x3 , y3 ));
 }
-void PrimitiveBuffer::quad(vec3 p1, vec3 p2, vec3 p3, vec3 p4)
+void SLPrimitiveBuffer::quad(vec3 p1, vec3 p2, vec3 p3, vec3 p4)
 {
 	texcoord0(vec2(0.0f, 0.0f));
 	vertex(p1);
@@ -366,7 +366,7 @@ void PrimitiveBuffer::quad(vec3 p1, vec3 p2, vec3 p3, vec3 p4)
 	texcoord0(vec2(0.0f, 1.0f));
 	vertex(p4);
 }
-void PrimitiveBuffer::quadratic_bezier(vec2 startpos, vec2 controlpos, vec2 endpos, int32_t numseg)
+void SLPrimitiveBuffer::quadratic_bezier(vec2 startpos, vec2 controlpos, vec2 endpos, int32_t numseg)
 {
 	/*std::vector<vec2> plotresult;
 	quadratic_plot(startpos, controlpos, endpos, plotresult, numseg);
@@ -379,15 +379,15 @@ void PrimitiveBuffer::quadratic_bezier(vec2 startpos, vec2 controlpos, vec2 endp
 	}*/
 }
  
-void PrimitiveBuffer::draw_sphere_patch(float slon, float slat,
-	float elon, float elat,
+void SLPrimitiveBuffer::draw_sphere_patch(float32 slon, float32 slat,
+	float32 elon, float32 elat,
 	int32 subdivide, int32 ysubdivide,
-	float radius, float texture_width, float texture_height)
+	float32 radius, float32 texture_width, float32 texture_height)
 {
-/*	float_t lon, lat;
+/*	float32_t lon, lat;
 	vec3 vert;
 	vec3 norm;
-	float_t u, v;
+	float32_t u, v;
 
 	if (!ysubdivide)
 		ysubdivide = subdivide;
@@ -400,11 +400,11 @@ void PrimitiveBuffer::draw_sphere_patch(float slon, float slat,
 			{
 				lon = slon + ((elon - slon) / subdivide) * x;
 				lat = slat + ((elat - slat) / ysubdivide) * y;
-				u = (float_t)x / (float_t)subdivide;
-				v = (float_t)y / (float_t)ysubdivide;
-				float_t tu, tv;
-				get_patch((float_t)lon, (float_t)lat, &tu, &tv, texture_width, texture_height);
-				Polar<float_t> pol(degtorad(lon),degtorad(lat), radius);
+				u = (float32_t)x / (float32_t)subdivide;
+				v = (float32_t)y / (float32_t)ysubdivide;
+				float32_t tu, tv;
+				get_patch((float32_t)lon, (float32_t)lat, &tu, &tv, texture_width, texture_height);
+				Polar<float32_t> pol(degtorad(lon),degtorad(lat), radius);
 				vert = pol.to_cartesian();
 				norm = vert;
 				norm.normalise();
@@ -419,31 +419,31 @@ void PrimitiveBuffer::draw_sphere_patch(float slon, float slat,
 	draw();
     */
 }
-void PrimitiveBuffer::sphere(float radius, float texture_width, float texture_height)
+void SLPrimitiveBuffer::sphere(float32 radius, float32 texture_width, float32 texture_height)
 {
 	int32_t nslice = 128;
 	draw_sphere_patch(-179.995, -89.995, 179.995, 89.995, nslice, nslice / 2, radius, texture_width, texture_height);
 }
  
-/*std::vector<Line3<float_t> > GLPrimitiveBuffer::get_lines()
+/*std::vector<Line3<float32_t> > GLPrimitiveBuffer::get_lines()
 {
-	std::vector<Line3<float_t>> lines;
+	std::vector<Line3<float32_t>> lines;
 	size_t numvert = vertices.size();
 	for (size_t i1 = 0; i1 < numvert; i1++)
 	{
 		size_t i2 = (i1 + 1) % numvert;
-		Line3<float_t> l(get_vertex((int32_t)i1), get_vertex((int32_t)i2));
+		Line3<float32_t> l(get_vertex((int32_t)i1), get_vertex((int32_t)i2));
 		lines.emplace_back(l);
 	}
 	return lines;
 }*/
-void PrimitiveBuffer::alphasort()
+void SLPrimitiveBuffer::alphasort()
 {//
 	//std::sort(std::begin(colours), std::end(colours), [](vec4 a, vec4 b) {return a.a > b.a; });
 }
 
 
-void PrimitiveBuffer::build()
+void SLPrimitiveBuffer::build()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_id);
 	const GLsizei vert_size = (GLsizei)(sizeof(vec3) * vertices.size());
@@ -506,7 +506,7 @@ void PrimitiveBuffer::build()
 	//glClientActiveTexture(GL_TEXTURE0);
 
 }
-void PrimitiveBuffer::draw()
+void SLPrimitiveBuffer::draw()
 {
 	if (usage != GL_STATIC_DRAW)
 		build();
@@ -581,7 +581,7 @@ void PrimitiveBuffer::draw()
 	glClientActiveTexture(GL_TEXTURE0);
 
 }
-void PrimitiveBuffer::reset()
+void SLPrimitiveBuffer::reset()
 {
 	vertices.clear();
 	normals.clear();
@@ -591,54 +591,54 @@ void PrimitiveBuffer::reset()
 	vtexcoord3.clear();
 	colours.clear();
 }
-void PrimitiveBuffer::begin(GLenum type)
+void SLPrimitiveBuffer::begin(GLenum type)
 {
 	primitive = type;
 }
 
-void PrimitiveBuffer::end()
+void SLPrimitiveBuffer::end()
 {
 	if (usage != GL_STATIC_DRAW)
 		draw();
 }
 
-vec3* PrimitiveBuffer::vertex_pointer(int32 index)
+vec3* SLPrimitiveBuffer::vertex_pointer(int32 index)
 {
 	if (index < vertices.size())
 		return &vertices[index];
 	return NULL;
 }
-vec3* PrimitiveBuffer::normal_pointer(int32 index)
+vec3* SLPrimitiveBuffer::normal_pointer(int32 index)
 {
 	if (index < normals.size())
 		return &normals[index];
 	return NULL;
 }
-vec4* PrimitiveBuffer::colour_pointer(int32 index)
+vec4* SLPrimitiveBuffer::colour_pointer(int32 index)
 {
 	if (index < colours.size())
 		return &colours[index];
 	return NULL;
 }
-vec2* PrimitiveBuffer::texcoord0_pointer(int32 index)
+vec2* SLPrimitiveBuffer::texcoord0_pointer(int32 index)
 {
 	if (index < vtexcoord0.size())
 		return &vtexcoord0[index];
 	return NULL;
 }
-vec2* PrimitiveBuffer::texcoord1_pointer(int32 index)
+vec2* SLPrimitiveBuffer::texcoord1_pointer(int32 index)
 {
 	if (index < vtexcoord1.size())
 		return &vtexcoord1[index];
 	return NULL;
 }
-vec2* PrimitiveBuffer::texcoord2_pointer(int32 index)
+vec2* SLPrimitiveBuffer::texcoord2_pointer(int32 index)
 {
 	if (index < vtexcoord2.size())
 		return &vtexcoord2[index];
 	return NULL;
 }
-vec2* PrimitiveBuffer::texcoord3_pointer(int32 index)
+vec2* SLPrimitiveBuffer::texcoord3_pointer(int32 index)
 {
 	if (index < vtexcoord3.size())
 		return &vtexcoord3[index];

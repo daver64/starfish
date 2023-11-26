@@ -3,3 +3,4 @@ win32-build/
 linux-build/
 .vscode/
 .lib/
+src/starfish.aps

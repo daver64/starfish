@@ -22,48 +22,48 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-class PrimitiveBuffer {
+class SLPrimitiveBuffer {
 public:
-	PrimitiveBuffer(GLenum primitive = GL_TRIANGLES, GLenum usage = GL_DYNAMIC_DRAW);
-	~PrimitiveBuffer();
+	SLPrimitiveBuffer(GLenum primitive = GL_TRIANGLES, GLenum usage = GL_DYNAMIC_DRAW);
+	~SLPrimitiveBuffer();
 	void vertex(vec3 v);
 	void vertex(vec2 v);
-	void vertex(float x, float y, float z);
+	void vertex(float32 x, float32 y, float32 z);
 	void normal(vec3 n);
-	void normal(float nx, float ny, float nz);
+	void normal(float32 nx, float32 ny, float32 nz);
 	void texcoord(vec2 t);
-	void texcoord(float u, float v);
+	void texcoord(float32 u, float32 v);
 	void texcoord0(vec2 t);
 	void texcoord1(vec2 t);
 	void texcoord2(vec2 t);
 	void texcoord3(vec2 t);
-	void texcoord0(float u, float v);
-	void texcoord1(float u, float v);
-	void texcoord2(float u, float v);
-	void texcoord3(float u, float v);
+	void texcoord0(float32 u, float32 v);
+	void texcoord1(float32 u, float32 v);
+	void texcoord2(float32 u, float32 v);
+	void texcoord3(float32 u, float32 v);
 	const vec3 get_vertex(int32 index);
 	vec2 get_vertex2(int32 index);
 	vec3 get_normal(int32 index);
 	vec2 get_texcoord(int32 index, int32 texture_index=0);
 	void colour(pixel32 c);
-	void colour(float r, float g, float b, float a);
+	void colour(float32 r, float32 g, float32 b, float32 a);
 	//void colour(RGBAf c);
-	void point(float x1, float y1, pixel32 colour);
-	void line(float x1, float y1, float x2, float y2, pixel32 colour);
-	void line(float x1, float y1, float x2, float y2, pixel32 colours[2]);
-	void rect(float x1, float y1, float width, float height, pixel32 colour);
-	void rect(float x1, float y1, float width, float height, pixel32 colours[4]);
-	void circle(float x, float y, float radius, pixel32 colour, int32 numsegments);
-	void ellipse(float x, float y, float width, float height, pixel32 ccolour, int32 numsegments);
-	void triangle(float x1, float y1, float x2, float y2, float x3, float y3, pixel32 colours[3]);
+	void point(float32 x1, float32 y1, pixel32 colour);
+	void line(float32 x1, float32 y1, float32 x2, float32 y2, pixel32 colour);
+	void line(float32 x1, float32 y1, float32 x2, float32 y2, pixel32 colours[2]);
+	void rect(float32 x1, float32 y1, float32 width, float32 height, pixel32 colour);
+	void rect(float32 x1, float32 y1, float32 width, float32 height, pixel32 colours[4]);
+	void circle(float32 x, float32 y, float32 radius, pixel32 colour, int32 numsegments);
+	void ellipse(float32 x, float32 y, float32 width, float32 height, pixel32 ccolour, int32 numsegments);
+	void triangle(float32 x1, float32 y1, float32 x2, float32 y2, float32 x3, float32 y3, pixel32 colours[3]);
 	void quad(vec3 p1, vec3 p2, vec3 p3, vec3 p4);
 	void quadratic_bezier(vec2 startpos, vec2 controlpos, vec2 endpos, int32_t numseg);
-	void draw_sphere_patch(float slon, float slat,
-		float elon, float elat,
+	void draw_sphere_patch(float32 slon, float32 slat,
+		float32 elon, float32 elat,
 		int subdivide, int ysubdivide,
-		float radius, float texture_width, float texture_height);
-	void sphere(float radius, float texture_width, float texture_height);
-	//std::vector<Line3<float> > get_lines();
+		float32 radius, float32 texture_width, float32 texture_height);
+	void sphere(float32 radius, float32 texture_width, float32 texture_height);
+	//std::vector<Line3<float32> > get_lines();
 	void alphasort();
 	void build();
 	void draw();
