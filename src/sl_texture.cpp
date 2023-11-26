@@ -7,6 +7,7 @@
 #else
 #include <GL/gl.h>
 #include <GL/glext.h>
+#include <cstring>
 #endif
 
 #include "sl_texture.h"
