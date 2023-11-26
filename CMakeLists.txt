@@ -69,6 +69,8 @@ add_executable(starfish
     src/sl_vertexbuffer.cpp
     src/sl_context.cpp
     src/sl_glext.cpp
+    src/sl_projection.cpp
+    src/sl_glstate.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
@@ -94,6 +96,8 @@ add_executable(starfish
     src/sl_texture.cpp
     src/sl_vertexbuffer.cpp    
     src/sl_context.cpp
+    src/sl_projection.cpp
+    src/sl_glstate.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
