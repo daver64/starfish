@@ -1,3 +1,6 @@
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
+*/
 #pragma once
 #include <GLFW/glfw3.h>
 #include <atomic>

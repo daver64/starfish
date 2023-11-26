@@ -1,3 +1,6 @@
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
+*/
 #pragma once
 #include "sl.h"
 
@@ -5,8 +8,7 @@ class Texture {
 public:
     Texture(int32 width,int32 height,bool mipmapped);
     ~Texture();
-    void putpixel(int32 x,int32 y, pixel32 colour);
-    pixel32 getpixel(int32 x,int32 y);
+
     int32 width;
     int32 height;
     bool mipmapped;

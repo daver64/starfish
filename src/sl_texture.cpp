@@ -41,18 +41,6 @@ Texture::~Texture()
     glDeleteTextures(1,&glref);
 }
 
-void Texture::putpixel(int32 x,int32 y, pixel32 colour)
-{
-    assert(x>=0 && x<width);
-    assert(y>=0 && y<height);
-    pixeldata[y*width+x]=colour;
-}
-pixel32 Texture::getpixel(int32 x,int32 y)
-{
-    assert(x>=0 && x<width);
-    assert(y>=0 && y<height);
-    return pixeldata[y*width+x];
-}
 
 void sl_disable_texture_filtering()
 {

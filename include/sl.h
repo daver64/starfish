@@ -1,3 +1,6 @@
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
+*/
 #pragma once
 
 #include <cstdint>
@@ -99,7 +102,12 @@ public:
 #define getr_nf(p) (getr(p)/255.0f)
 #define getg_nf(p) (getg(p)/255.0f)
 #define getb_nf(p) (getb(p)/255.0f)
-
+template<typename T, typename U, typename V>
+inline T clamp(T a, U low, V high)
+{
+	T val = a < low ? low : a;
+	return val > high ? high : val;
+}
 typedef int8_t int8;
 typedef uint8_t uint8;
 typedef int16_t int16;
@@ -115,6 +123,7 @@ int main_graphics();
 int main_networking();
 
 struct SLContext;
+class Texture;
 extern "C" {
 void sl_load_gl_extensions();
 }
