@@ -79,16 +79,20 @@ void sl_translate(ivec3 pos)
 {
 	glTranslatef((GLfloat)pos.x, (GLfloat)pos.y, (GLfloat)pos.z);
 }
-
-void sl_ortho(SLContext *context, bool flip, float64 near_z, float64 far_z)
+void sl_ortho(int32 width,int32 height, bool flip, float64 near_z, float64 far_z)
 {
-	glViewport(0, 0, context->width, context->height);
+	glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	if (!flip)
-		glOrtho(0, context->width, context->height, 0, near_z, far_z);
+		glOrtho(0, width, height, 0, near_z, far_z);
 	else
-		glOrtho(0, context->width, 0, context->height, near_z, far_z);
+		glOrtho(0, width, 0, height, near_z, far_z);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+}
+
+void sl_ortho(SLContext *context, bool flip, float64 near_z, float64 far_z)
+{
+    sl_ortho(context->width,context->height,flip,near_z,far_z);
 }

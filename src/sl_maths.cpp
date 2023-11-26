@@ -3,17 +3,28 @@
 */
 #include "sl.h"
 
-polar::polar(const float &lon,
-             const float &lat,
-             const float &alt) : lon(lon), lat(lat), alt(alt) {}
-polar::polar(const float p[3]) : lon(p[0]), lat(p[1]), alt(p[0]) {}
+const float64 PI = 3.14159265358979323846264338327950288;
+const float64 TAU = 2.0 * PI;
+const float64 PIDIV2 = PI / 2.0;
+float64 ROUNDING_ERROR = std::numeric_limits<float64>::epsilon();
+
+const float32 PIf = 3.14159265358979323846;
+const float32 TAUf = 2.0f * PIf;
+const float32 PIDIV2f = PIf / 2.0f;
+float32 ROUNDING_ERRORf = std::numeric_limits<float32>::epsilon();
+
+
+polar::polar(const float32 &lon,
+             const float32 &lat,
+             const float32 &alt) : lon(lon), lat(lat), alt(alt) {}
+polar::polar(const float32 p[3]) : lon(p[0]), lat(p[1]), alt(p[0]) {}
 polar::polar(const vec3 &pos)
 {
     rad = std::sqrt(pos.x * pos.x + pos.y * pos.y + pos.z * pos.z);
     lon = std::atan(pos.y / pos.x);
     lat = std::atan(std::sqrt(pos.x * pos.x + pos.y * pos.y) / pos.z);
 }
-float &polar::operator[](size_t index)
+float32 &polar::operator[](size_t index)
 {
     return d[index];
 }
@@ -37,17 +48,17 @@ void polar::from_cartesian(const vec3 &pos)
     *this = cartesian_to_polar(pos);
 }
 
-dpolar::dpolar(const double &lon,
-               const double &lat,
-               const double &alt) : lon(lon), lat(lat), alt(alt) {}
-dpolar::dpolar(const double p[3]) : lon(p[0]), lat(p[1]), alt(p[0]) {}
+dpolar::dpolar(const float64 &lon,
+               const float64 &lat,
+               const float64 &alt) : lon(lon), lat(lat), alt(alt) {}
+dpolar::dpolar(const float64 p[3]) : lon(p[0]), lat(p[1]), alt(p[0]) {}
 dpolar::dpolar(const dvec3 &pos)
 {
     rad = std::sqrt(pos.x * pos.x + pos.y * pos.y + pos.z * pos.z);
     lon = std::atan(pos.y / pos.x);
     lat = std::atan(std::sqrt(pos.x * pos.x + pos.y * pos.y) / pos.z);
 }
-double &dpolar::operator[](size_t index)
+float64 &dpolar::operator[](size_t index)
 {
     return d[index];
 }
