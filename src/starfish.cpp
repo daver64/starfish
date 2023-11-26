@@ -17,11 +17,11 @@ int main(int argc, char *argv[])
     bool fullscreen=false;
     int32 result=sl_create_context(&context,"simlib app",screen_w,screen_h,fullscreen);
     
-    tex=new SLTexture(256,256,true);
+    tex=new SLTexture("../src/bud.png",false);
     geometry=new SLPrimitiveBuffer;
 
     sl_disable_depthtest();
-    sl_disable_texturing();
+   
 
     do {
         sl_process_input(context);
@@ -30,15 +30,23 @@ int main(int argc, char *argv[])
 
 
         // test drawing.
+        sl_push_matrix();
+        sl_disable_texturing();
+        sl_disable_blending();
         sl_begin_triangles(geometry);
         sl_triangle(geometry,10,100,100,10,200,100,
             x11colours::red,x11colours::green,x11colours::blue);
         sl_end_triangles(geometry);
+        sl_pop_matrix();
 
+        sl_push_matrix();
+        sl_enable_texturing();
+        sl_bind_texture(geometry,tex);
         sl_begin_quads(geometry);
-        sl_rectangle(geometry,512,200,128,128,x11colours::yellow);
+        sl_rectangle(geometry,512,200,128,128,x11colours::white);
         sl_end_quads(geometry);
-
+        sl_unbind_texture(geometry);
+        sl_pop_matrix();
 
 
         sl_swap(context);

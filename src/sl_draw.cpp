@@ -45,7 +45,17 @@ void sl_translate(ivec3 pos)
 {
 	glTranslatef((GLfloat)pos.x, (GLfloat)pos.y, (GLfloat)pos.z);
 }
-
+ 
+void sl_bind_texture(SLPrimitiveBuffer *target,SLTexture *texture)
+{
+	target->bind_tex0(texture->glref);
+	glBindTexture(GL_TEXTURE_2D, texture->glref);
+}	
+void sl_unbind_texture(SLPrimitiveBuffer *target)
+{
+	target->bind_tex0(0);
+	glBindTexture(GL_TEXTURE_2D,0);
+}
 
 void sl_clrscr(SLContext *context, pixel32 colour)
 {

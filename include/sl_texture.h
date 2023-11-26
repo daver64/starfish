@@ -7,6 +7,7 @@
 class SLTexture {
 public:
     SLTexture(int32 width,int32 height,bool mipmapped);
+    SLTexture(const char* filename, bool mipmapped);
     ~SLTexture();
 
     int32 width;
