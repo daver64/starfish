@@ -1,3 +1,6 @@
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
+*/
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
@@ -8,10 +11,6 @@
 
 #define GLFW_INCLUDE_GLEXT
 #include <GLFW/glfw3.h>
-//#ifdef _WIN32
-//#include "sl_glext.h"
-//#endif
-//#include <sl_glext.h>
 #include <AL/al.h>
 #include <AL/alc.h>
 

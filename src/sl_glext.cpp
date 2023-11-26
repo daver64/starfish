@@ -1,7 +1,5 @@
-/***
-*
-* License: BSD.
-*
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
 */
 #include <windows.h>
 #include "sl.h"
