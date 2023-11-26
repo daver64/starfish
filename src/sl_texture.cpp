@@ -14,7 +14,7 @@
 SLTexture::SLTexture(int32 width, int32 height, bool mipmapped)
     : width(width), height(height), mipmapped(mipmapped)
 {
-    pixel32 *pixeldata=new pixel32[width*height];
+    pixeldata=new pixel32[width*height];
 	glEnable(GL_TEXTURE_2D);
 	glGenTextures(1, &glref);
 	glBindTexture(GL_TEXTURE_2D, glref);

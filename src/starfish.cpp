@@ -43,7 +43,9 @@ int main(int argc, char *argv[])
         sl_swap(context);
         sl_poll_input(context);
     } while(!sl_want_to_quit(context));
+    sl_destroy_context(&context);   
     delete tex;
-    sl_destroy_context(&context);
+    delete geometry;
+
     return 0;
 }
