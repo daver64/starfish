@@ -1,7 +1,7 @@
 /**
  * (c) 2023 David Rowbotham thedaver64@gmail.com
 */
-
+#include "sl_draw.h"
 #include "sl_primitivebuffer.h"
 #include <algorithm>
 #include <functional>
@@ -530,7 +530,7 @@ void SLPrimitiveBuffer::draw()
 	bool textured = false;
 	if (tex0_glref > 0)
 	{
-		//gl_enable_texturing();
+		sl_enable_texturing();
 		//gl_bind_texture_to_unit(tex0_glref, 0);
 
 		glActiveTexture(GL_TEXTURE0);
@@ -543,7 +543,7 @@ void SLPrimitiveBuffer::draw()
 
 	if (tex1_glref > 0)
 	{
-		//gl_enable_texturing();
+		sl_enable_texturing();
 		//gl_bind_texture_to_unit(tex1_glref, 1);
 
 		glActiveTexture(GL_TEXTURE0 + 1);
@@ -565,9 +565,9 @@ void SLPrimitiveBuffer::draw()
 	}
 
 
-	//gl_enable_arrays();
+	sl_enable_arrays();
 	glDrawArrays(primitive, 0, (GLsizei)vertices.size());
-	//gl_disable_arrays();
+	sl_disable_arrays();
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 

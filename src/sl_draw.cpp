@@ -65,6 +65,20 @@ pixel32 sl_getpixel(SLTexture *target,int32 x,int32 y)
     return target->pixeldata[y*target->width+x];
 }
 
+void sl_enable_arrays()
+{
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+	glEnableClientState(GL_NORMAL_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+}
+void sl_disable_arrays()
+{
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glDisableClientState(GL_COLOR_ARRAY);
+	glDisableClientState(GL_NORMAL_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+}
 void sl_cull_back()
 {
 	sl_enable_cull_face();
