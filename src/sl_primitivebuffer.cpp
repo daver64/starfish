@@ -492,18 +492,7 @@ void SLPrimitiveBuffer::build()
 			glBufferSubData(GL_ARRAY_BUFFER, (GLint)tex1_offset, tex1_coord_size, &vtexcoord1[0]);
 	}
 	//gl_bind_texture_to_unit(tex2_glref,2);
-	//glActiveTexture(GL_TEXTURE0 + 2);
-	//glClientActiveTexture(GL_TEXTURE0 + 2);
-	//if (tex2_coord_size)
-	//	glBufferSubData(GL_ARRAY_BUFFER, (GLint)tex2_offset, tex2_coord_size, &vtexcoord2[0]);
 
-	//gl_bind_texture_to_unit(tex3_glref,3);
-	//glActiveTexture(GL_TEXTURE0 + 3);
-	//glClientActiveTexture(GL_TEXTURE0 + 3);
-	//if (tex3_coord_size)
-	//	glBufferSubData(GL_ARRAY_BUFFER, (GLint)tex3_offset, tex3_coord_size, &vtexcoord3[0]);
-	//glActiveTexture(GL_TEXTURE0);
-	//glClientActiveTexture(GL_TEXTURE0);
 
 }
 void SLPrimitiveBuffer::draw()
@@ -557,11 +546,11 @@ void SLPrimitiveBuffer::draw()
 
 	if (!textured)
 	{
-		//gl_disable_texturing();
+		sl_disable_texturing();
 	}
 	else
 	{
-		//gl_enable_texturing();
+		sl_enable_texturing();
 	}
 
 

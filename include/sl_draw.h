@@ -4,6 +4,15 @@
 #pragma once
 #include "sl.h"
 
+
+void sl_push_matrix();
+void sl_pop_matrix();
+void sl_lookat(vec3 eye, vec3 center, vec3 up);
+void sl_translate(dvec3 pos);
+void sl_translate(vec3 pos);
+void sl_translate(ivec3 pos);
+
+
 void sl_clrscr(SLContext *context,pixel32 colour);
 void sl_clrscr(SLContext *context);
 void sl_clearcolour(SLContext *context,pixel32 colour);
@@ -51,7 +60,23 @@ void sl_disable_multisample();
 void sl_enable_mipmapping();
 void sl_disable_mipmapping();
 
-void sl_trianglefill(SLPrimitiveBuffer *target,
+void sl_begin_triangles(SLPrimitiveBuffer *target);
+void sl_end_triangles(SLPrimitiveBuffer *target);
+void sl_begin_lines(SLPrimitiveBuffer *target);
+void sl_end_lines(SLPrimitiveBuffer *target);
+void sl_begin_quads(SLPrimitiveBuffer *target);
+void sl_end_quads(SLPrimitiveBuffer *target);
+
+void sl_triangle(SLPrimitiveBuffer *target,
     float32 x1, float32 y1, 
     float32 x2, float32 y2, 
     float32 x3, float32 y3, pixel32 colour);
+void sl_triangle(SLPrimitiveBuffer *target,
+    float32 x1, float32 y1, 
+    float32 x2, float32 y2, 
+    float32 x3, float32 y3, 
+	pixel32 colour1,pixel32 colour2,pixel32 colour3);
+
+void sl_rectangle(SLPrimitiveBuffer *target,
+    float32 x,float32 y,float32 width, float32 height, pixel32 colour);
+

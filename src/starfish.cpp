@@ -27,9 +27,23 @@ int main(int argc, char *argv[])
         sl_process_input(context);
         sl_ortho(context);
         sl_clrscr(context);
-        sl_trianglefill(geometry,10,100,100,10,200,100,x11colours::silver);
+
+
+        // test drawing.
+        sl_begin_triangles(geometry);
+        sl_triangle(geometry,10,100,100,10,200,100,
+            x11colours::red,x11colours::green,x11colours::blue);
+        sl_end_triangles(geometry);
+
+        sl_begin_quads(geometry);
+        sl_rectangle(geometry,512,200,128,128,x11colours::yellow);
+        sl_end_quads(geometry);
+
+
+
         sl_swap(context);
         sl_poll_input(context);
+
     } while(!sl_want_to_quit(context));
 
     sl_destroy_context(&context);   

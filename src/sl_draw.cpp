@@ -18,30 +18,57 @@
 #include "sl_texture.h"
 #include "sl_primitivebuffer.h"
 #include <cassert>
-
-void sl_clrscr(SLContext *context,pixel32 colour)
+void sl_push_matrix()
 {
-    float r=getr_nf(colour);
-    float g=getg_nf(colour);
-    float b=getb_nf(colour);
-    glClearColor(r,g,b,0);
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+	glPushMatrix();
+}
+void sl_pop_matrix()
+{
+	glPopMatrix();
+}
+void sl_lookat(vec3 eye, vec3 center, vec3 up)
+{
+	gluLookAt(eye.x, eye.y, eye.z + 0.001,
+		center.x, center.y, center.z,
+		up.y, up.x, up.z);
+}
+void sl_translate(dvec3 pos)
+{
+	glTranslated(pos.x, pos.y, pos.z);
+}
+void sl_translate(vec3 pos)
+{
+	glTranslatef(pos.x, pos.y, pos.z);
+}
+void sl_translate(ivec3 pos)
+{
+	glTranslatef((GLfloat)pos.x, (GLfloat)pos.y, (GLfloat)pos.z);
+}
+
+
+void sl_clrscr(SLContext *context, pixel32 colour)
+{
+	float r = getr_nf(colour);
+	float g = getg_nf(colour);
+	float b = getb_nf(colour);
+	glClearColor(r, g, b, 0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void sl_clrscr(SLContext *context)
 {
-    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void sl_clearcolour(SLContext *context,pixel32 colour)
+void sl_clearcolour(SLContext *context, pixel32 colour)
 {
-    float r=getr_nf(colour);
-    float g=getg_nf(colour);
-    float b=getb_nf(colour);
-    glClearColor(r,g,b,0);
+	float r = getr_nf(colour);
+	float g = getg_nf(colour);
+	float b = getb_nf(colour);
+	glClearColor(r, g, b, 0);
 }
- 
-void sl_ortho(SLContext *context, bool flip, float64 near_z,float64 far_z)
+
+void sl_ortho(SLContext *context, bool flip, float64 near_z, float64 far_z)
 {
 	glViewport(0, 0, context->width, context->height);
 	glMatrixMode(GL_PROJECTION);
@@ -53,17 +80,17 @@ void sl_ortho(SLContext *context, bool flip, float64 near_z,float64 far_z)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
-void sl_putpixel(SLTexture *target,int32 x,int32 y, pixel32 colour)
+void sl_putpixel(SLTexture *target, int32 x, int32 y, pixel32 colour)
 {
-    assert(x>=0 && x<target->width);
-    assert(y>=0 && y<target->height);
-    target->pixeldata[y*target->width+x]=colour;
+	assert(x >= 0 && x < target->width);
+	assert(y >= 0 && y < target->height);
+	target->pixeldata[y * target->width + x] = colour;
 }
-pixel32 sl_getpixel(SLTexture *target,int32 x,int32 y)
+pixel32 sl_getpixel(SLTexture *target, int32 x, int32 y)
 {
-    assert(x>=0 && x<target->width);
-    assert(y>=0 && y<target->height);
-    return target->pixeldata[y*target->width+x];
+	assert(x >= 0 && x < target->width);
+	assert(y >= 0 && y < target->height);
+	return target->pixeldata[y * target->width + x];
 }
 
 void sl_enable_arrays()
@@ -175,23 +202,23 @@ void sl_disable_colour_material()
 {
 	glDisable(GL_COLOR_MATERIAL);
 }
-void sl_material_ambient(float_t* values)
+void sl_material_ambient(float_t *values)
 {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, values);
 }
-void sl_material_diffuse(float_t* values)
+void sl_material_diffuse(float_t *values)
 {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, values);
 }
-void sl_material_emissive(float_t* values)
+void sl_material_emissive(float_t *values)
 {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, values);
 }
-void sl_material_specular(float_t* values)
+void sl_material_specular(float_t *values)
 {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, values);
 }
-void sl_material_shininess(float_t* value)
+void sl_material_shininess(float_t *value)
 {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, value);
 }
@@ -239,17 +266,73 @@ void sl_enable_texture_filtering()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
 
-
-void sl_trianglefill(SLPrimitiveBuffer *target,
-    float32 x1, float32 y1, 
-    float32 x2, float32 y2, 
-    float32 x3, float32 y3, pixel32 colour)
+void sl_begin_triangles(SLPrimitiveBuffer *target)
+{
+	target->begin(GL_TRIANGLES);
+}
+void sl_end_triangles(SLPrimitiveBuffer *target)
+{
+	target->end();
+}
+void sl_begin_lines(SLPrimitiveBuffer *target)
+{
+	target->begin(GL_LINES);
+}
+void sl_end_lines(SLPrimitiveBuffer *target)
+{
+	target->end();
+}
+void sl_begin_quads(SLPrimitiveBuffer *target)
+{
+	target->begin(GL_QUADS);
+}
+void sl_end_quads(SLPrimitiveBuffer *target)
+{
+	target->end();
+}
+void sl_triangle(SLPrimitiveBuffer *target,
+					 float32 x1, float32 y1,
+					 float32 x2, float32 y2,
+					 float32 x3, float32 y3, pixel32 colour)
 {
 	target->colour(colour);
-	target->begin(GL_TRIANGLES);
 	target->vertex(vec2(x1, y1));
 	target->vertex(vec2(x2, y2));
 	target->vertex(vec2(x3, y3));
-	target->end();
 }
 
+void sl_triangle(SLPrimitiveBuffer *target,
+					 float32 x1, float32 y1,
+					 float32 x2, float32 y2,
+					 float32 x3, float32 y3,
+					 pixel32 colour1, pixel32 colour2, pixel32 colour3)
+{
+	target->colour(colour1);
+	target->vertex(vec2(x1, y1));
+	target->colour(colour2);
+	target->vertex(vec2(x2, y2));
+	target->colour(colour3);
+	target->vertex(vec2(x3, y3));
+}
+void sl_rectangle(SLPrimitiveBuffer *target,
+				  float32 x, float32 y, 
+				  float32 width, float32 height, 
+				  pixel32 colour)
+{
+	const float32 x2 = x + width;
+	const float32 y2 = y + height;
+
+	target->colour(colour);
+
+	target->texcoord0(vec2(0, 0));
+	target->vertex(vec2(x, y));
+
+	target->texcoord0(vec2(1, 0));
+	target->vertex(vec2(x2, y));
+
+	target->texcoord0(vec2(1, 1));
+	target->vertex(vec2(x2, y2));
+
+	target->texcoord0(vec2(0, 1));
+	target->vertex(vec2(x, y2));	
+}
