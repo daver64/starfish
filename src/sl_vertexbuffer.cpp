@@ -1,6 +1,5 @@
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
+*/
 #include "sl.h"
-
-class VertexBuffer {
-
-};
-
+#include "sl_vertexbuffer.h"

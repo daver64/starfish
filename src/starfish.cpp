@@ -1,4 +1,6 @@
-
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
+*/
 #include "sl.h"
 #include "sl_draw.h"
 #include "sl_framebuffer.h"
@@ -39,8 +41,6 @@ int main(int argc, char *argv[])
         sl_begin_quads(geometry);
         sl_rectangle(geometry,512,200,128,128,x11colours::white);
         sl_end_quads(geometry);
-        sl_unbind_texture(geometry);
-  
 
         sl_swap(context);
         sl_poll_input(context);

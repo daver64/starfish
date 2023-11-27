@@ -1,4 +1,7 @@
 
+/**
+ * (c) 2023 David Rowbotham thedaver64@gmail.com
+*/
 #ifdef _WIN32
 #include <windows.h>
 #include <GL/GL.h>

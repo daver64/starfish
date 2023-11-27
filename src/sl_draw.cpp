@@ -1,6 +1,6 @@
 /**
  * (c) 2023 David Rowbotham thedaver64@gmail.com
-*/
+ */
 #ifdef _WIN32
 #include <windows.h>
 #undef max
@@ -58,7 +58,6 @@ pixel32 sl_getpixel(SLTexture *target, int32 x, int32 y)
 	return target->pixeldata[y * target->width + x];
 }
 
-
 void sl_begin_triangles(SLPrimitiveBuffer *target)
 {
 	target->begin(GL_TRIANGLES);
@@ -84,9 +83,9 @@ void sl_end_quads(SLPrimitiveBuffer *target)
 	target->end();
 }
 void sl_triangle(SLPrimitiveBuffer *target,
-					 float32 x1, float32 y1,
-					 float32 x2, float32 y2,
-					 float32 x3, float32 y3, pixel32 colour)
+				 float32 x1, float32 y1,
+				 float32 x2, float32 y2,
+				 float32 x3, float32 y3, pixel32 colour)
 {
 	target->colour(colour);
 	target->vertex(vec2(x1, y1));
@@ -95,10 +94,10 @@ void sl_triangle(SLPrimitiveBuffer *target,
 }
 
 void sl_triangle(SLPrimitiveBuffer *target,
-					 float32 x1, float32 y1,
-					 float32 x2, float32 y2,
-					 float32 x3, float32 y3,
-					 pixel32 colour1, pixel32 colour2, pixel32 colour3)
+				 float32 x1, float32 y1,
+				 float32 x2, float32 y2,
+				 float32 x3, float32 y3,
+				 pixel32 colour1, pixel32 colour2, pixel32 colour3)
 {
 	target->colour(colour1);
 	target->vertex(vec2(x1, y1));
@@ -108,8 +107,8 @@ void sl_triangle(SLPrimitiveBuffer *target,
 	target->vertex(vec2(x3, y3));
 }
 void sl_rectangle(SLPrimitiveBuffer *target,
-				  float32 x, float32 y, 
-				  float32 width, float32 height, 
+				  float32 x, float32 y,
+				  float32 width, float32 height,
 				  pixel32 colour)
 {
 	const float32 x2 = x + width;
@@ -127,5 +126,5 @@ void sl_rectangle(SLPrimitiveBuffer *target,
 	target->vertex(vec2(x2, y2));
 
 	target->texcoord0(vec2(0, 1));
-	target->vertex(vec2(x, y2));	
+	target->vertex(vec2(x, y2));
 }

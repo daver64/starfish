@@ -113,6 +113,7 @@ void sl_enable_texturing()
 }
 void sl_disable_texturing()
 {
+	glBindTexture(GL_TEXTURE_2D,0);	
 	glDisable(GL_TEXTURE_2D);
 }
 void sl_enable_blending()
