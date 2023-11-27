@@ -125,7 +125,20 @@ class dquat {
 
 };
 
+class plane {
 
+};
+
+class dplane {
+
+};
+class line {
+
+};
+
+class dline {
+
+};
 void cubic_plot(vec2 startpos, vec2 controlpos1, vec2 endpos, vec2 controlpos2, std::vector< vec2>& plotresult, int32 numsegments);
 void quadratic_plot(vec2 startpos, vec2 controlpos, vec2 endpos, std::vector< vec2>& plotresult, int32 numsegments);
 bool get_line_intersection(float32 p0_x, float32 p0_y,

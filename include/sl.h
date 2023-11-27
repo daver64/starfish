@@ -287,9 +287,6 @@ inline T clamp(T a, U low, V high)
 	return val > high ? high : val;
 }
 
-int main_audio();
-int main_graphics();
-int main_networking();
 
 struct SLContext;
 class SLTexture;
@@ -307,3 +304,7 @@ void sl_quit(SLContext *context);
 void sl_swap(SLContext *context);
 void sl_poll_input(SLContext *context);
 void sl_process_input(SLContext *context);
+
+int main_audio();
+int main_graphics(SLContext *context);
+int main_networking();

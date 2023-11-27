@@ -14,22 +14,26 @@
 #include <cstdio>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include "sl_context.h"
 
-
-int main_graphics()
+int main_graphics(SLContext *context)
 {
     int32 result = EXIT_SUCCESS;
+ 
 
-   /* IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO &io = ImGui::GetIO();
-    (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    ImGui::StyleColorsDark();
-    const char *glsl_version = "#version 130";
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
-    bool show_demo_window = true;
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+          ImGui::Render();
+           ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+//    ImGui::GetWindowDrawList()->AddText(ImGui::GetWindowFont(), 
+ //       ImGui::GetWindowFontSize(), 
+ //       ImVec2(100.f, 100.f), 
+ //       ImColor(255, 255, 0, 255), 
+  //      "Hello World", 0, 0.0f, 0);
+//
+ /*    bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 */
