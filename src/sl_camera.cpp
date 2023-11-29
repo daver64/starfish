@@ -12,6 +12,10 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
+#ifndef _WIN32
+#include <GL/glu.h>
+#endif
+
 Camera::Camera() 
 {
 	farz = 1e2;
@@ -43,7 +47,7 @@ void Camera::set_projection()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glViewport(viewport_x, viewport_y, viewport_w, viewport_h);
-	gluPerspective(fov, (double_t)viewport_w / (double_t)viewport_h, nearz, farz);
+	gluPerspective(fov, (float64)viewport_w / (float64)viewport_h, nearz, farz);
 	glMatrixMode(GL_MODELVIEW);
 }
 bool Camera::point_within_frustum(vec3& p) 

@@ -2,6 +2,7 @@
  * (c) 2023 David Rowbotham thedaver64@gmail.com and Toni Ylisirniö 
 */
 #include "sl.h"
+#include <algorithm>
 
 Object3d* find_common_parent(Object3d* o1, Object3d* o2,
 	std::vector<Object3d*>* up, std::vector<Object3d*>* down) {

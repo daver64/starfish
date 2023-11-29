@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
         ImGui::NewFrame();
         bool is_open=true;
         ImGui::SetNextWindowPos(ImVec2(0,0));
-        ImGui::Begin("", &is_open, 
+        ImGui::Begin("Name", &is_open, 
             ImGuiWindowFlags_NoTitleBar|
             ImGuiWindowFlags_Modal|
             ImGuiWindowFlags_NoMove|
