@@ -43,20 +43,20 @@ int main(int argc, char *argv[])
         sl_ortho(context);
         sl_clrscr(context);
 
+
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-
-        {
-            ImGui::Begin("Another Window");
-            // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-            ImGui::Text("Hello from\n a window!");
-            // if (ImGui::Button("Close Me"))
-            //     show_another_window = false;
-            ImGui::End();
-        }
+        bool is_open=true;
+        ImGui::SetNextWindowPos(ImVec2(0,0));
+        ImGui::Begin("", &is_open, 
+            ImGuiWindowFlags_NoTitleBar|
+            ImGuiWindowFlags_Modal|
+            ImGuiWindowFlags_NoMove|
+            ImGuiWindowFlags_NoResize);
+        ImGui::Text("textlabel");
+        ImGui::End();
         ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         // test drawing.
         sl_disable_texturing();
@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
         sl_begin_quads(geometry);
         sl_rectangle(geometry, 512, 200, 128, 128, x11colours::white);
         sl_end_quads(geometry);
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         // main_graphics(context);
         sl_swap(context);
