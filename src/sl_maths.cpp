@@ -362,6 +362,21 @@ void dpolar::from_cartesian(const vec3 &pos)
     *this = cartesian_to_polar(pos);
 }
 
+
+plane::plane()
+{
+    normal = vec3(0, 1, 0);    
+}
+plane::~plane()
+{
+    
+}
+//
+//
+// free form functions
+//
+//
+
 void quadratic_plot(vec2 startpos, vec2 controlpos, vec2 endpos, std::vector<vec2> &plotresult, int32 numsegments)
 {
     for (int32 i = 0; i <= numsegments; ++i)

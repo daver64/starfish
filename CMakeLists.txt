@@ -72,6 +72,8 @@ add_executable(starfish
     src/sl_projection.cpp
     src/sl_glstate.cpp
     src/sl_maths.cpp
+    src/sl_object3d.cpp
+    src/sl_camera.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
@@ -100,6 +102,8 @@ add_executable(starfish
     src/sl_projection.cpp
     src/sl_glstate.cpp
     src/sl_maths.cpp
+    src/sl_object3d.cpp
+    src/sl_camera.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp

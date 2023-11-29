@@ -73,7 +73,7 @@ mat4x4 local_to_local(Object3d* o1, Object3d* o2) { // Probably not-broken, cave
 	return accu;
 }
 
-mat4x4> relative_to_relative(Object3d* o1,
+mat4x4 relative_to_relative(Object3d* o1,
 	Object3d* o2, vec3* vel) { // Not broken, can be used
 	mat4x4 accu;
 /*	vec3 vel_accu;
@@ -170,6 +170,16 @@ Deriv Object3d::evaluate(Moments& state, float32 dt, Deriv& derivative)
 	output.torque = angular_acceleration;
 	return output;
 }
+
+//Object3d::Object3d(Object3d *parent)
+//: parent(parent)
+//{
+
+//}
+//Object3d::~Object3d()
+//{
+
+//}
 void Object3d::apply_forces(float32 dt)
 {
 	apply_linear_force(dt);
@@ -222,7 +232,7 @@ void Object3d::apply_angular_force(float32 dt)
 	tmp2 = tmp2 * 2.f;
 	vec3 tmp3 = (a.torque + d.torque);
 	tmp2 = tmp2 + tmp3;
-	tmp2 = tmp2 * dt * (1.0 / 6.0);
+	tmp2 = tmp2 * ( dt * (1.0f / 6.0f));
 	state->angular_momentum += tmp2;
 	state->recalculate();
 }
