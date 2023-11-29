@@ -99,8 +99,6 @@ void Camera::set_frustum_vars()
 			};
 		};
 
-
-
 */
 void Camera::get_frustum_points_near(vec3& near_center, vec3& near_top_left,
 	vec3& near_top_right, vec3& near_bottom_left, vec3& near_bottom_right)
