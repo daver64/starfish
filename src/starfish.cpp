@@ -7,9 +7,7 @@
 #include "sl_primitivebuffer.h"
 #include "sl_texture.h"
 #include "sl_context.h"
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
+
 SLContext *context{nullptr};
 SLTexture *tex{nullptr};
 SLPrimitiveBuffer *geometry{nullptr};
@@ -25,17 +23,7 @@ int main(int argc, char *argv[])
     geometry = new SLPrimitiveBuffer;
 
     sl_disable_depthtest();
-
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO &io = ImGui::GetIO();
-    (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    ImGui::StyleColorsDark();
-
-    const char *glsl_version = "#version 130";
-    ImGui_ImplGlfw_InitForOpenGL(context->window, true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
+    init_gui(context);
 
     do
     {
@@ -43,20 +31,7 @@ int main(int argc, char *argv[])
         sl_ortho(context);
         sl_clrscr(context);
 
-
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-        bool is_open=true;
-        ImGui::SetNextWindowPos(ImVec2(0,0));
-        ImGui::Begin("Name", &is_open, 
-            ImGuiWindowFlags_NoTitleBar|
-            ImGuiWindowFlags_Modal|
-            ImGuiWindowFlags_NoMove|
-            ImGuiWindowFlags_NoResize);
-        ImGui::Text("textlabel");
-        ImGui::End();
-        ImGui::Render();
+        update_gui();
 
         // test drawing.
         sl_disable_texturing();
@@ -69,9 +44,9 @@ int main(int argc, char *argv[])
         sl_begin_quads(geometry);
         sl_rectangle(geometry, 512, 200, 128, 128, x11colours::white);
         sl_end_quads(geometry);
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-        // main_graphics(context);
+        render_gui();
+
         sl_swap(context);
         sl_poll_input(context);
 

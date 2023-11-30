@@ -306,5 +306,9 @@ void sl_poll_input(SLContext *context);
 void sl_process_input(SLContext *context);
 
 int main_audio();
-int main_graphics(SLContext *context);
+//int main_graphics(SLContext *context);
 int main_networking();
+
+void render_gui();
+void update_gui();
+void init_gui(SLContext *context);
