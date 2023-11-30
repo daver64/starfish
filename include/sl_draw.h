@@ -84,11 +84,16 @@ void sl_triangle(SLPrimitiveBuffer *target,
     float32 x2, float32 y2, 
     float32 x3, float32 y3, pixel32 colour);
 void sl_triangle(SLPrimitiveBuffer *target,
+    vec3 vertex1,vec3 vertex2,vec3 vertex3,
+    pixel32 colour);
+void sl_triangle(SLPrimitiveBuffer *target,
     float32 x1, float32 y1, 
     float32 x2, float32 y2, 
     float32 x3, float32 y3, 
 	pixel32 colour1,pixel32 colour2,pixel32 colour3);
-
+void sl_triangle(SLPrimitiveBuffer *target,
+    vec3 vertex1,vec3 vertex2,vec3 vertex3,
+    ARGB3 colours);
 void sl_rectangle(SLPrimitiveBuffer *target,
     float32 x,float32 y,float32 width, float32 height, pixel32 colour);
 

@@ -36,7 +36,14 @@ int main(int argc, char *argv[])
         // test drawing.
         sl_disable_texturing();
         sl_begin_triangles(geometry);
-        sl_triangle(geometry, 10, 100, 100, 10, 200, 100, x11colours::red, x11colours::green, x11colours::blue);
+
+        ARGB3 tricolours;
+        vec3 v1(10.0f,100.0f,0.0f);
+        vec3 v2(100.0f,10.0f,0.0f);
+        vec3 v3(200.0f,100.0f,0.0f);
+        sl_triangle(geometry,
+                    v1,v2,v3,
+                    tricolours);
         sl_end_triangles(geometry);
 
         sl_enable_texturing();

@@ -92,7 +92,26 @@ void sl_triangle(SLPrimitiveBuffer *target,
 	target->vertex(vec2(x2, y2));
 	target->vertex(vec2(x3, y3));
 }
-
+void sl_triangle(SLPrimitiveBuffer *target,
+				 vec3 vertex1, vec3 vertex2, vec3 vertex3,
+				 pixel32 colour)
+{
+	target->colour(colour);
+	target->vertex(vertex1);
+	target->vertex(vertex2);
+	target->vertex(vertex3);
+}
+void sl_triangle(SLPrimitiveBuffer *target,
+				 vec3 vertex1, vec3 vertex2, vec3 vertex3,
+				 ARGB3 colours)
+{
+	target->colour(colours.colours[0]);
+	target->vertex(vertex1);
+	target->colour(colours.colours[1]);	
+	target->vertex(vertex2);
+	target->colour(colours.colours[2]);	
+	target->vertex(vertex3);
+}
 void sl_triangle(SLPrimitiveBuffer *target,
 				 float32 x1, float32 y1,
 				 float32 x2, float32 y2,

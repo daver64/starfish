@@ -49,6 +49,8 @@ typedef unsigned int GLRef;
 #define getg_nf(p) (getg(p)/255.0f)
 #define getb_nf(p) (getb(p)/255.0f)
 
+
+
 enum class BlendMode {
 	blend_multiply, blend_add, blend_alpha, blend_darken,
 	blend_lighten, blend_screen, blend_difference, blend_negation,
@@ -279,6 +281,18 @@ namespace naturalcolours {
 	static constexpr pixel32 carmine = rgb(0x96, 0x00, 0x18);
 	static constexpr pixel32 carminepink = rgb(0xeb, 0x4c, 0x42);
 }
+
+struct ARGB3 {
+	ARGB3(){}
+	ARGB3(pixel32 colour0,pixel32 colour1, pixel32 colour2)
+	{
+		colours[0]=colour0;
+		colours[1]=colour1;
+		colours[2]=colour2;
+	}
+	~ARGB3(){}
+	pixel32 colours[3]{x11colours::red,x11colours::green,x11colours::blue};
+};
 
 template<typename T, typename U, typename V>
 inline T clamp(T a, U low, V high)
