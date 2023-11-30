@@ -57,7 +57,6 @@ if(MSVC)
 add_executable(starfish 
     src/starfish.cpp
     src/main_audio.cpp
-    src/main_graphics.cpp
     src/main_networking.cpp
     src/sl_fastnoise.cpp
     src/sl_fontdata.cpp
@@ -89,7 +88,6 @@ if(UNIX)
 add_executable(starfish 
     src/starfish.cpp
     src/main_audio.cpp
-    src/main_graphics.cpp
     src/main_networking.cpp
     src/sl_fastnoise.cpp
     src/sl_fontdata.cpp
