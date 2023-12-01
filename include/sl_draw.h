@@ -79,10 +79,28 @@ void sl_end_lines(SLPrimitiveBuffer *target);
 void sl_begin_quads(SLPrimitiveBuffer *target);
 void sl_end_quads(SLPrimitiveBuffer *target);
 
+
+/*
+    drawing primitives.
+*/
+
+// various ways of drawing lines
+void sl_line(SLPrimitiveBuffer *target,
+    float32 x1, float32 y1, 
+    float32 x2, float32 y2,
+    pixel32 colour);
+void sl_line(SLPrimitiveBuffer *target,
+    vec3 v1, vec3 v2, pixel32 colour1, pixel32 colour2);
+
+
+// various ways of drawing triangles
 void sl_triangle(SLPrimitiveBuffer *target,
     float32 x1, float32 y1, 
     float32 x2, float32 y2, 
     float32 x3, float32 y3, pixel32 colour);
+void sl_triangle(SLPrimitiveBuffer *target,
+    vec2 vertex1,vec2 vertex2,vec2 vertex3,
+    pixel32 colour);
 void sl_triangle(SLPrimitiveBuffer *target,
     vec3 vertex1,vec3 vertex2,vec3 vertex3,
     pixel32 colour);
@@ -94,6 +112,10 @@ void sl_triangle(SLPrimitiveBuffer *target,
 void sl_triangle(SLPrimitiveBuffer *target,
     vec3 vertex1,vec3 vertex2,vec3 vertex3,
     ARGB3 colours);
+
+// various ways of drawing rectangles
 void sl_rectangle(SLPrimitiveBuffer *target,
     float32 x,float32 y,float32 width, float32 height, pixel32 colour);
 
+
+// various ways of drawing circles and ellipses
