@@ -3,7 +3,7 @@
 #include <cstring>
 char *load_text_file(const char *filename, int32 &num_bytes_read)
 {
-    FILE *fp = fopen(filename, "r");
+    FILE *fp = fopen(filename, "rb");
     if (!fp)
     {
         num_bytes_read = 0;
@@ -19,8 +19,8 @@ char *load_text_file(const char *filename, int32 &num_bytes_read)
     }
     fseek(fp, 0, SEEK_SET);
     char *buffer = (char *)malloc(len + 1);
-    memset(buffer, 0, len + 1);
     num_bytes_read = (int32)fread(buffer, 1, len, fp);
+    buffer[len] = 0;
     fclose(fp);
     return buffer;
 }

@@ -8,14 +8,12 @@
 #include <GL/GLU.h>
 #include "sl_glext.h"
 #else
-//#include <GL/glew.h>
-//#include <GL/gl.h>
+
 #define GL_GLEXT_PROTOTYPES
-//#include <GL/glext.h>
 #include <GLFW/glfw3.h>
-//
 #include <cstring>
 #endif
+
 #include "sl_shader.h"
 
 Shader *gl_create_shader(const char *vertex_file, const char *fragment_file, const char *geometry_file)

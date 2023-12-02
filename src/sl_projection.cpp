@@ -83,6 +83,7 @@ void sl_translate(ivec3 pos)
 {
 	glTranslatef((GLfloat)pos.x, (GLfloat)pos.y, (GLfloat)pos.z);
 }
+ 
 void sl_ortho(int32 width,int32 height, bool flip, float64 near_z, float64 far_z)
 {
 	glViewport(0, 0, width, height);
@@ -100,3 +101,4 @@ void sl_ortho(SLContext *context, bool flip, float64 near_z, float64 far_z)
 {
     sl_ortho(context->width,context->height,flip,near_z,far_z);
 }
+ 
