@@ -4,7 +4,7 @@ class Camera : public Object3d
 {
 public:
 	Camera();
-	//virtual ~Camera();
+	virtual ~Camera(){}
 	double get_screen_size(Object3d* obj, float32 distance);
 	void billboard(vec3& pos, float32 size);
 	void billboard_fixed(vec3& pos, float32 abs_size);

@@ -20,6 +20,8 @@
 SLTexture::SLTexture(const char *filename, bool mipmapped)
 {
 	pixel32* pxd=(pixel32*)stbi_load(filename,&width,&height,0,4);
+	if(!pxd)
+		return;
 	pixeldata=new pixel32[width*height];
 	memcpy(pixeldata,pxd,width*height*sizeof(pixel32));
 	stbi_image_free((void*)pxd);

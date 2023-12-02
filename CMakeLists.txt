@@ -65,7 +65,6 @@ add_executable(starfish
     src/sl_primitivebuffer.cpp
     src/sl_shader.cpp
     src/sl_texture.cpp
-    src/sl_vertexbuffer.cpp
     src/sl_context.cpp
     src/sl_glext.cpp
     src/sl_projection.cpp
@@ -96,8 +95,7 @@ add_executable(starfish
     src/sl_framebuffer.cpp
     src/sl_primitivebuffer.cpp
     src/sl_shader.cpp
-    src/sl_texture.cpp
-    src/sl_vertexbuffer.cpp    
+    src/sl_texture.cpp   
     src/sl_context.cpp
     src/sl_projection.cpp
     src/sl_glstate.cpp
