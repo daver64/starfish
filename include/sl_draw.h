@@ -12,6 +12,7 @@ void sl_translate(dvec3 pos);
 void sl_translate(vec3 pos);
 void sl_translate(ivec3 pos);
 void sl_bind_texture(SLPrimitiveBuffer *target,SLTexture *texture);
+void sl_bind_texture(SLPrimitiveBuffer *target,SLFrameBuffer *fbo);
 void sl_unbind_texture(SLPrimitiveBuffer *target);
 
 void sl_clrscr(SLContext *context,pixel32 colour);

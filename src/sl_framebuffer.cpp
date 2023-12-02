@@ -19,7 +19,7 @@
 
 FrameBuffer* gl_create_fp_framebuffer(int32_t width, int32_t height)
 {
-	FrameBuffer* fbo = (FrameBuffer*)malloc(sizeof(FrameBuffer));
+	FrameBuffer* fbo = new FrameBuffer;//(FrameBuffer*)malloc(sizeof(FrameBuffer));
 	//log_printf("gl_create_fp_framebuffer()1a glerror=%s\n", gl_geterror());
 	//log_printf( "Create Floating Point Framebuffer\n");
 	 
@@ -94,7 +94,7 @@ FrameBuffer* gl_create_fp_framebuffer(int32_t width, int32_t height)
 }
 FrameBuffer* gl_create_framebuffer(int32_t width, int32_t height)
 {
-	FrameBuffer* fbo = (FrameBuffer*)malloc(sizeof(FrameBuffer));
+	FrameBuffer* fbo = new FrameBuffer;//(FrameBuffer*)malloc(sizeof(FrameBuffer));
 
 	//log_printf( "Create ARGB Framebuffer\n");
 	//log_printf("gl_create_framebuffer()1a glerror=%s\n", gl_geterror());
@@ -157,7 +157,7 @@ void gl_destroy_framebuffer(FrameBuffer* fbo)
 {
 	glDeleteFramebuffers(1, &fbo->frame_id);
 	glDeleteFramebuffers(1, &fbo->render_id);
-	free(fbo);
+	delete fbo;
 }
 void gl_bind_framebuffer(FrameBuffer* fbo)
 {
@@ -175,16 +175,22 @@ void gl_unbind_framebuffer(FrameBuffer* fbo)
 
 
 SLFrameBuffer::SLFrameBuffer(int32 width, int32 height, GLenum format)
-	:format(format)
+	:format(format),width(width),height(height),glref(0)
 {
 	
 	if (format == GL_RGBA)
+    {
 		fbo = gl_create_framebuffer(width, height);
+    }
 	else if (format == GL_RGBA32F)
 		fbo = gl_create_fp_framebuffer(width, height);
 	else
 		fbo = nullptr;
 
+    if(fbo)
+    {
+        glref=fbo->glref;
+    }
 	//if (!fbo)
 	//{
 	//	log_printf("INVALID NULL FBO\n");
@@ -194,23 +200,31 @@ SLFrameBuffer::~SLFrameBuffer()
 {
 	if (fbo)
 	{
-		//gl_unbind_framebuffer(fbo);
+		gl_unbind_framebuffer(fbo);
 		gl_destroy_framebuffer(fbo);
 		fbo = nullptr;
 	}
 }
-void SLFrameBuffer::resize(int32_t width, int32_t height)
+void SLFrameBuffer::resize(int32_t nwidth, int32_t nheight)
 {
 	if (fbo)
 	{
 		gl_unbind_framebuffer(fbo);
 		gl_destroy_framebuffer(fbo);
+        
 		if (format == GL_RGBA)
-			fbo = gl_create_framebuffer(width, height);
+			fbo = gl_create_framebuffer(nwidth, nheight);
 		else if (format == GL_RGBA32F)
-			fbo = gl_create_fp_framebuffer(width, height);
+			fbo = gl_create_fp_framebuffer(nwidth, nheight);
 		else
 			fbo = nullptr;
+    if(fbo)
+    {
+        width=nwidth;
+        height=nheight;
+        glref=fbo->glref;
+    }
+    
 	}
 }
 void SLFrameBuffer::bind()
@@ -227,20 +241,13 @@ void SLFrameBuffer::unbind()
 		gl_unbind_framebuffer(fbo);
 	}
 }
-const int32_t SLFrameBuffer::glref() const
-{
-	if (fbo)
-	{
-		return fbo->glref;
-	}
-	return 0;
-}
+ 
 void SLFrameBuffer::ortho()
 {
 	if (fbo)
 	{
 		bind();
-		sl_ortho(fbo->width, fbo->height, TRUE);
+		sl_ortho(fbo->width, fbo->height, true);
 	}
 }
 void SLFrameBuffer::clr()
@@ -253,29 +260,13 @@ void SLFrameBuffer::clr()
 	}
 }
 
-const int32_t SLFrameBuffer::width() const
-{
-	if (fbo)
-	{
-		return fbo->width;
-	}
-	return 0;
-}
-const int32_t SLFrameBuffer::height() const
-{
-	if (fbo)
-	{
-		return fbo->height;
-	}
-	return 0;
-}
+ 
 bool SLFrameBuffer::read_colour_data(std::vector<uint32_t>& colour_data)
 {
 	if (format != GL_RGBA || !fbo)
 		return false;
-	const int32_t w = width();
-	const int32_t h = height();
-	const int32_t len = w * h * 4;
+
+	const int32_t len = width * height * sizeof(pixel32);
 	if (colour_data.size() < len)
 		colour_data.resize(len);
 

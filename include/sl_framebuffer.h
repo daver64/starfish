@@ -25,12 +25,12 @@ public:
 	void resize(int32 width, int32 height);
 	void bind();
 	void unbind();
-	const int32 glref() const;
 	void ortho();
 	void clr();
-	const int32 width() const;
-	const int32 height() const;
 	bool read_colour_data(std::vector<pixel32>& colour_data);
     FrameBuffer *fbo{nullptr};
+    int32 width;
+    int32 height;
+    int32 glref;
     GLenum format;
 };

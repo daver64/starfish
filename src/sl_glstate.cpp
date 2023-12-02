@@ -21,6 +21,7 @@
 #include "sl_draw.h"
 #include "sl_texture.h"
 #include "sl_primitivebuffer.h"
+#include "sl_framebuffer.h"
 #include <cassert>
 
 
@@ -47,9 +48,15 @@ void sl_bind_texture(SLPrimitiveBuffer *target,SLTexture *texture)
 	target->bind_tex0(texture->glref);
 	glBindTexture(GL_TEXTURE_2D, texture->glref);
 }	
+void sl_bind_texture(SLPrimitiveBuffer *target, SLFrameBuffer *fbo)
+{
+	target->bind_tex0(fbo->glref);
+	glBindTexture(GL_TEXTURE_2D, fbo->glref);
+}
 void sl_unbind_texture(SLPrimitiveBuffer *target)
 {
-	target->bind_tex0(0);
+	if(target)
+		target->bind_tex0(0);
 	glBindTexture(GL_TEXTURE_2D,0);
 }
 

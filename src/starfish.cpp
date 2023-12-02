@@ -11,7 +11,7 @@
 SLContext *context{nullptr};
 SLTexture *tex{nullptr};
 SLPrimitiveBuffer *geometry{nullptr};
-
+SLFrameBuffer *framebuffer{nullptr};
 int main(int argc, char *argv[])
 {
     int32 screen_w = 800;
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     tex = new SLTexture("../src/bud.png", true);
     geometry = new SLPrimitiveBuffer;
-
+    framebuffer = new SLFrameBuffer(128,128);
     sl_disable_depthtest();
     init_gui(context);
 
@@ -47,12 +47,30 @@ int main(int argc, char *argv[])
         sl_end_triangles(geometry);
 
         sl_enable_texturing();
-        sl_bind_texture(geometry, tex);
-        sl_begin_quads(geometry);
-        sl_rectangle(geometry, 512, 200, 128, 128, x11colours::white);
-        sl_end_quads(geometry);
+       // sl_bind_texture(geometry, tex);
+        //sl_begin_quads(geometry);
+       // sl_rectangle(geometry, 512, 200, 128, 128, x11colours::white);
+       // sl_end_quads(geometry);
 
         render_gui();
+
+        //sl_push_matrix();
+        framebuffer->bind();
+        framebuffer->ortho();
+       
+        sl_begin_quads(geometry);
+        sl_rectangle(geometry,0,0,128,128,x11colours::red);
+        sl_rectangle(geometry,32,32,64,64,x11colours::yellow);
+        sl_end_quads(geometry);
+        framebuffer->unbind();
+       // sl_pop_matrix();
+
+        sl_ortho(context);
+        sl_bind_texture(geometry,framebuffer);
+        sl_begin_quads(geometry);
+        sl_rectangle(geometry,512,400,128,128,x11colours::white);
+        sl_end_quads(geometry);
+
 
         sl_swap(context);
         sl_poll_input(context);
@@ -62,6 +80,7 @@ int main(int argc, char *argv[])
     sl_destroy_context(&context);
     delete tex;
     delete geometry;
+    delete framebuffer;
 
     return 0;
 }

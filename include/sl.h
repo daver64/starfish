@@ -298,6 +298,7 @@ struct ARGB3 {
 
 struct SLContext;
 class SLTexture;
+class SLFrameBuffer;
 class SLPrimitiveBuffer;
 class SLShader;
 
