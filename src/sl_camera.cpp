@@ -26,11 +26,11 @@ SLCamera::SLCamera()
 	external = false;
 	rmat = rquat.to_matrix();
 	bboard_mat = rquat.to_matrix();
-	for (int32_t n = 0; n < 3; n++)
-	{
-		bboard_mat[0][n] = -rmat[0][n];
-		bboard_mat[6][n] = -rmat[6][n];
-	}
+	//for (int32_t n = 0; n < 3; n++)
+	//{
+	//	bboard_mat[0][n] = -rmat[0][n];
+	//	bboard_mat[6][n] = -rmat[6][n];
+	//}
 }
 // SLCamera::~SLCamera()
 //{
@@ -75,6 +75,15 @@ void SLCamera::set_projection()
 */
 void SLCamera::set_3d_transform()
 {
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    float32 aspect = float32(800.0f / 600.0f);
+    gluPerspective(80.0f, aspect, 0.5f, 2000.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+
+	/*
 	set_projection();
 	glLoadIdentity();
 	//rmat = rquat.to_matrix();
@@ -83,6 +92,7 @@ void SLCamera::set_3d_transform()
 	//gluLookAt(position.x, position.y, position.z + 0.001,
 	//		  position.x + (float32)rmat[6], position.y + rmat[6][1], position.z + rmat[6][2],
 	//		  rmat[3][0], rmat[3][1], rmat[3][2]);
+	*/
 }
 
 bool SLCamera::point_within_frustum(vec3 &p)

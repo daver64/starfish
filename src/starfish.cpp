@@ -140,12 +140,7 @@ void test_3d_rendering()
 
     //
     camera->set_3d_transform();
-    //glMatrixMode(GL_PROJECTION);
-    //glLoadIdentity();
-   // float32 aspect = float32(800.0f / 600.0f);
-    //gluPerspective(80.0f, aspect, 0.5f, 2000.0f);
-    //glMatrixMode(GL_MODELVIEW);
-   // glLoadIdentity();
+
 
 
     sl_disable_texturing();
