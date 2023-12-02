@@ -68,15 +68,16 @@ int main(int argc, char *argv[])
 
         // 
         // test texture atlas drawing
+        // bind, draw, unbind.
         atlas->bind();
         atlas->batch_begin();
-
         atlas->batch_draw_tile(100,400,64,64,4,x11colours::white);
-
         atlas->batch_end();
+
+
         //
         // test FrameBuffer. 
-        // bind it, draw into it, unbind it...
+        // bind it, draw into it, unbind it.
         framebuffer->bind();
         framebuffer->ortho();
 
@@ -109,6 +110,7 @@ int main(int argc, char *argv[])
     } while (!sl_want_to_quit(context));
 
     sl_destroy_context(&context);
+    delete atlas;
     delete tex;
     delete geometry;
     delete framebuffer;
