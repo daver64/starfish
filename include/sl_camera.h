@@ -9,7 +9,7 @@ public:
 	void billboard(vec3& pos, float32 size);
 	void billboard_fixed(vec3& pos, float32 abs_size);
 	void billboard_quad(vec3  pos, float32 size);
-	virtual void set_3d_transform(){};
+	virtual void set_3d_transform();
 	virtual void set_doom_3d_transform(){};
 	virtual void set_projection();
 	void get_glu_lookat_params(vec3& eye, vec3& center, vec3& up);

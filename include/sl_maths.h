@@ -51,7 +51,7 @@ inline float32 degtorad(float32 val) { return val * 0.0174532925f; }
 inline float64 radtodeg(float64 val) { return val * 57.2957795; }
 inline float32 radtodeg(float32 val) { return val * 57.2957795f; }
 
-template<typename T, typename U, typename V>
+template <typename T, typename U, typename V>
 inline T clamp(T a, U low, V high)
 {
 	T val = a < low ? low : a;
@@ -167,19 +167,35 @@ public:
 	EIntersectionRelation3D classify_point_relation(
 		const vec3 &point) const
 	{
-		const float32 d = glm::dot(normal,point) + D;
+		const float32 d = glm::dot(normal, point) + D;
 		if (d < -ROUNDING_ERROR)
 			return ISREL3D_BACK;
 		if (d > ROUNDING_ERROR)
 			return ISREL3D_FRONT;
 		return ISREL3D_PLANAR;
 	}
+	void set_plane(
+		const vec3& point1, const vec3& point2, const vec3& point3)
+	{
+		//normal = (point2 - point1).cross(point3 - point1);
+		normal = glm::cross( (point2-point1), (point3 - point1));
+		//normal.normalise();
+		glm::normalize(normal);
+		recalculate(point1);
+	}
+	void recalculate(const vec3 &point)
+	{
+		//D = -point.dot(normal);
+		D = glm::dot(point,normal);
+	}	
 	vec3 normal;
 	float32 D;
 };
 
 class dplane
 {
+public:
+
 	dvec3 normal;
 	float64 D;
 };
