@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     sl_disable_depthtest();
     init_gui(context);
 
-    atlas = new SLTextureAtlas(geometry,"../data/textures/atlas.bmp", 16,16,true, false);
+    atlas = new SLTextureAtlas(geometry,"../data/textures/test_atlas.png", 8,8,true, false);
 
     do
     {
