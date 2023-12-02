@@ -12,7 +12,7 @@ SLContext *context{nullptr};
 SLTexture *tex{nullptr};
 SLPrimitiveBuffer *geometry{nullptr};
 SLFrameBuffer *framebuffer{nullptr};
-
+SLTextureAtlas *atlas{nullptr};
 
 int main(int argc, char *argv[])
 {
@@ -21,11 +21,15 @@ int main(int argc, char *argv[])
     bool fullscreen = false;
     int32 result = sl_create_context(&context, "simlib app", screen_w, screen_h, fullscreen);
 
-    tex = new SLTexture("../data/textures/bud.png", true);
+    tex = new SLTexture("../data/textures/bud.png", false,true);
+    
+
     geometry = new SLPrimitiveBuffer;
     framebuffer = new SLFrameBuffer(128, 128);
     sl_disable_depthtest();
     init_gui(context);
+
+    atlas = new SLTextureAtlas(geometry,"../data/textures/atlas.bmp", 16,16,true, false);
 
     do
     {
@@ -62,7 +66,14 @@ int main(int argc, char *argv[])
         sl_end_quads(geometry);
       
 
+        // 
+        // test texture atlas drawing
+        atlas->bind();
+        atlas->batch_begin();
 
+        atlas->batch_draw_tile(100,400,64,64,4,x11colours::white);
+
+        atlas->batch_end();
         //
         // test FrameBuffer. 
         // bind it, draw into it, unbind it...
