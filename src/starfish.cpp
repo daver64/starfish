@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     bool fullscreen = false;
     int32 result = sl_create_context(&context, "simlib app", screen_w, screen_h, fullscreen);
 
-    tex = new SLTexture("../src/bud.png", false);
+    tex = new SLTexture("../src/bud.png", true);
     geometry = new SLPrimitiveBuffer;
 
     sl_disable_depthtest();

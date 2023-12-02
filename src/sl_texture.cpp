@@ -16,6 +16,7 @@
 #include "sl_texture.h"
 #include "stb_image.h"
 
+
 SLTexture::SLTexture(const char *filename, bool mipmapped)
 {
 	pixel32* pxd=(pixel32*)stbi_load(filename,&width,&height,0,4);
@@ -32,7 +33,7 @@ SLTexture::SLTexture(const char *filename, bool mipmapped)
 
 	if (mipmapped)
 	{
-		//glGenerateMipmap(GL_TEXTURE_2D);
+		glGenerateMipmap(GL_TEXTURE_2D);
 		glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	}
@@ -55,7 +56,7 @@ SLTexture::SLTexture(int32 width, int32 height, bool mipmapped)
 
 	if (mipmapped)
 	{
-		//glGenerateMipmap(GL_TEXTURE_2D);
+		glGenerateMipmap(GL_TEXTURE_2D);
 		glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	}

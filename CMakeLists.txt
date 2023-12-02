@@ -74,6 +74,7 @@ add_executable(starfish
     src/sl_object3d.cpp
     src/sl_camera.cpp
     src/sl_gui.cpp
+    src/sl_fileio.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp
@@ -104,6 +105,7 @@ add_executable(starfish
     src/sl_object3d.cpp
     src/sl_camera.cpp
     src/sl_gui.cpp
+    src/sl_fileio.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_draw.cpp
     src/imgui/imgui_tables.cpp

@@ -294,12 +294,6 @@ struct ARGB3 {
 	pixel32 colours[3]{x11colours::red,x11colours::green,x11colours::blue};
 };
 
-template<typename T, typename U, typename V>
-inline T clamp(T a, U low, V high)
-{
-	T val = a < low ? low : a;
-	return val > high ? high : val;
-}
 
 
 struct SLContext;
@@ -325,3 +319,7 @@ int main_networking();
 void render_gui();
 void update_gui();
 void init_gui(SLContext *context);
+
+int32 string_split_c(const char *txt, char delim, char ***tokens);
+char *load_text_file(const char *filename, int32 &num_bytes_read);
+

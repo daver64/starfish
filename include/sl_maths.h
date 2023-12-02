@@ -51,6 +51,13 @@ inline float32 degtorad(float32 val) { return val * 0.0174532925f; }
 inline float64 radtodeg(float64 val) { return val * 57.2957795; }
 inline float32 radtodeg(float32 val) { return val * 57.2957795f; }
 
+template<typename T, typename U, typename V>
+inline T clamp(T a, U low, V high)
+{
+	T val = a < low ? low : a;
+	return val > high ? high : val;
+}
+
 class polar
 {
 public:
