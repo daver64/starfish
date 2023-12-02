@@ -240,7 +240,7 @@ void SLFrameBuffer::ortho()
 	if (fbo)
 	{
 		bind();
-		sl_ortho(fbo->width, fbo->height, TRUE);
+		sl_ortho(fbo->width, fbo->height, true);
 	}
 }
 void SLFrameBuffer::clr()
