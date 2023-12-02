@@ -1,6 +1,6 @@
 #include "sl.h"
-
-
+#include <cstdio>
+#include <cstring>
 char *load_text_file(const char *filename, int32 &num_bytes_read)
 {
     FILE *fp = fopen(filename, "r");
