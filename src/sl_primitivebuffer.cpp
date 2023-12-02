@@ -7,6 +7,27 @@
 #include <functional>
 #include <cmath>
 
+int32 get_patch(float32 lon, float32 lat, float32* u, float32* v, float32 width, float32 height)
+{
+	float32 dlon = lon;
+	float32 dlat = lat;
+	dlon = fmodf((dlon)+180.0f, 360.0f);
+	dlat = fmodf(-(dlat)+90.0f, 180.0f);
+
+	float32 x=1;
+	float32 y=1;
+	if (std::abs(width) > 0 && std::abs(height) > 0)
+	{
+		x = lon / (360.0f / width);
+		y = lat / (180.0f / height);
+	}
+	if (u != NULL && v != NULL)
+	{
+		*u = y;
+		*v = x;
+	}
+	return static_cast<int32>(std::floor(x) + width * std::floor(y));
+}
 SLPrimitiveBuffer::SLPrimitiveBuffer(GLenum primitive, GLenum usage) 
 	:primitive(primitive), usage(usage)
 {
@@ -368,7 +389,7 @@ void SLPrimitiveBuffer::quad(vec3 p1, vec3 p2, vec3 p3, vec3 p4)
 }
 void SLPrimitiveBuffer::quadratic_bezier(vec2 startpos, vec2 controlpos, vec2 endpos, int32_t numseg)
 {
-	/*std::vector<vec2> plotresult;
+	std::vector<vec2> plotresult;
 	quadratic_plot(startpos, controlpos, endpos, plotresult, numseg);
 	for (size_t i = 1; i < numseg; i++)
 	{
@@ -376,7 +397,7 @@ void SLPrimitiveBuffer::quadratic_bezier(vec2 startpos, vec2 controlpos, vec2 en
 		vertex(v1);
 		const vec2 v2 = plotresult[i];
 		vertex(v2);
-	}*/
+	}
 }
  
 void SLPrimitiveBuffer::draw_sphere_patch(float32 slon, float32 slat,
@@ -384,10 +405,10 @@ void SLPrimitiveBuffer::draw_sphere_patch(float32 slon, float32 slat,
 	int32 subdivide, int32 ysubdivide,
 	float32 radius, float32 texture_width, float32 texture_height)
 {
-/*	float32_t lon, lat;
+	float32 lon, lat;
 	vec3 vert;
 	vec3 norm;
-	float32_t u, v;
+	float32 u, v;
 
 	if (!ysubdivide)
 		ysubdivide = subdivide;
@@ -400,15 +421,15 @@ void SLPrimitiveBuffer::draw_sphere_patch(float32 slon, float32 slat,
 			{
 				lon = slon + ((elon - slon) / subdivide) * x;
 				lat = slat + ((elat - slat) / ysubdivide) * y;
-				u = (float32_t)x / (float32_t)subdivide;
-				v = (float32_t)y / (float32_t)ysubdivide;
-				float32_t tu, tv;
-				get_patch((float32_t)lon, (float32_t)lat, &tu, &tv, texture_width, texture_height);
-				Polar<float32_t> pol(degtorad(lon),degtorad(lat), radius);
+				u = (float32)x / (float32)subdivide;
+				v = (float32)y / (float32)ysubdivide;
+				float32 tu, tv;
+				get_patch((float32)lon, (float32)lat, &tu, &tv, texture_width, texture_height);
+				polar pol(degtorad(lon),degtorad(lat), radius);
 				vert = pol.to_cartesian();
 				norm = vert;
-				norm.normalise();
-
+				//norm.normalise();
+				glm::normalize(norm);
 				vertex(vert);
 				normal(norm);
 				texcoord(vec2(u, v));
@@ -417,7 +438,7 @@ void SLPrimitiveBuffer::draw_sphere_patch(float32 slon, float32 slat,
 		}
 	}
 	draw();
-    */
+    
 }
 void SLPrimitiveBuffer::sphere(float32 radius, float32 texture_width, float32 texture_height)
 {
