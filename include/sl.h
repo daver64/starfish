@@ -39,6 +39,7 @@ class SLTextureAtlas;
 class SLFrameBuffer;
 class SLPrimitiveBuffer;
 class SLShader;
+class SLCamera;
 
 extern "C" {
 void sl_load_gl_extensions();
